@@ -1,12 +1,20 @@
 package com.example.project_wizian2.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.project_wizian2.command.ResumeVO;
+import com.example.project_wizian2.resume.service.ResumeService;
 
 @Controller
 @RequestMapping("/user_stu")
 public class StudentController {
+	
+	@Autowired
+	ResumeService resumeService;
 	
 	@GetMapping("/applyList_stu")
 	public String applyList_stu() {
@@ -35,8 +43,24 @@ public class StudentController {
 	
 	@GetMapping("/resume_supportCenter")
 	public String resume_supportCenter() {
+		
+		
 		return "/user_stu/resume_supportCenter";
 	}
+	
+	@PostMapping("/resume_supportCenterForm") 
+	public String resume_supportCenterForm(ResumeVO vo) {
+		
+		System.out.println("컨트롤러 출발~~!");
+		
+		System.out.println("vo의 값: " + vo);
+		resumeService.registResume(vo);
+		
+		System.out.println("컨트롤러 도착~~!");
+		
+		return "/user_stu/myhome_stu";
+	}
+	
 	
 	
 }

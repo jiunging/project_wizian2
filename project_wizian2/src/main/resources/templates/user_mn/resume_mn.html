@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +25,7 @@
     <tbody>
     <tr>
         <td>1</td>
-        <td><a href="/student/comp_popup">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
+        <td><a href="/student/comp_popup" th:text="${vo}"></a></td>
         <td>2024-03-15</td>
     </tr>
     <tr>
