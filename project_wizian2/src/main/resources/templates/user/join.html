@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/580a20ac80.js" crossorigin="anonymous"></script>
+  <script src="/js/jquery-3.7.1.min.js"></script>
+  <script>$(function(){$("#header").load("/html/include_main/header_main.html");$("#footer").load("/html/include_main/footer_main.html");});</script>
+  <script src="/js/user/join.js"></script>
+  <link rel="stylesheet" href="/css/user/join.css">
+  <title>제이커리어 회원가입</title>
+</head>
+<body>
+  <div id="header"></div>
+
+  <section>
+
+    <!-- 상단 배너 -->
+    <div class="join__header"><span>회원가입</span></div>
+    <!-- 로고-->
+    <div class="join__logo"><img src="/img/LOGO.png" alt="로고"></div>
+
+    <div class="join__select">
+      <div class="join__sel__student"><span>학 생</span></div>
+      <div class="join__sel__company"><span>기 업</span></div>
+      <div class="join__sel__manager"><span>교직원</span></div>
+    </div>
+
+    <div class="join__body">
+      
+      <div class="join__people">
+
+        <!-- 학생 회원가입 -->
+        <form action="" method="" class="join__student">
+
+          <div class="join__student__detail">
+            <span>아이디</span>
+            <input type="text" id="student__id" name="student__id"  value="" placeholder="4~20자리 / 영문 숫자 특수문자를 포함이 가능합니다.">
+            <div class="message__student__id"></div>
+          </div>
+
+          <div class="join__student__detail">
+            <span>비밀번호</span>
+            <input type="password" id="student__pw" name="student__pw"  value="" placeholder="영문 숫자 특수문자를 포함해주세요." minlength="8" maxlength="20">
+            <div class="message__student__pw"></div>
+          </div>
+
+          <div class="join__student__detail">
+            <span>이 름</span>
+            <input type="text" id="student__name" name="student__name"  value="" placeholder="이름 입력">
+            <div class="message__student__name"></div>
+          </div>
+
+          <div class="join__student__detail">
+            <span>생년월일</span>
+            <input type="text" id="student__birth" name="student__birth"  value="" placeholder="YYYYMMDD" pattern="\d{4}\d{2}\d{2}" maxlength=8 >
+            <div class="message__student__birth"></div>
+          </div>
+
+          <div class="join__student__detail">
+            <span>휴대폰</span>
+            <input type="text" id="student__phone" name="student__phone"  value="" placeholder="'-' 빼고 입력해주세요"  maxlength=15 pattern="\d{3}\d{4}\d{4}">
+            <div class="message__student__phone"></div>
+          </div>
+
+          <div class="join__student__detail">
+            <span>이메일</span>
+            <input type="email" id="student__email" name="student__email"  value="" placeholder="example@naver.com">
+            <div class="message__student__email">취업에 관련된 정보를 받을 때 필요해요</div>
+          </div>
+
+        </form>
+        <!-- 기업 회원가입 -->
+        <form action="#" class="join__company">
+
+          <div class="join__company__detail">
+            <span>사업자등록번호</span>
+            <input type="text" id="company__id" name="company__id"  value="" placeholder="사업자 등록번호를 입력해주세요.">
+            <div class="message__company__id"></div>
+          </div>
+
+          <div class="join__company__detail">
+            <span>비밀번호</span>
+            <input type="password" id="company__pw" name="company__pw"  value="" placeholder="영문 숫자 특수문자를 포함해주세요." minlength="8" maxlength="20">
+            <div class="message__company__pw"></div>
+          </div>
+
+          <div class="join__company__detail">
+            <span>회사명</span>
+            <input type="text" id="company__name" name="company__name"  value="" placeholder="회사명 입력">
+            <div class="message__company__name"></div>
+          </div>
+
+          <div class="join__company__detail">
+            <span>부서명</span>
+            <input type="text" id="company__department" name="company__department"  value="" placeholder="부서명 입력">
+            <div class="message__company__department"></div>
+          </div>
+
+          <div class="join__company__detail">
+            <span>담당자 연락처</span>
+            <input type="text" id="company__phone" name="company__phone"  value="" placeholder="'-' 빼고 입력해주세요"  maxlength=15 pattern="\d{3}\d{4}\d{4}">
+            <div class="message__company__phone"></div>
+          </div>
+
+          <div class="join__company__detail">
+            <span>담당자 이메일</span>
+            <input type="email" id="company__email" name="company__email"  value="" placeholder="example@naver.com">
+            <div class="message__company__email">취업에 관련된 정보를 받을 때 필요해요</div>
+          </div>
+
+          <div class="join__company__detail">
+            <span>업종</span>
+            <input type="text" id="company__type" name="company__type"  value="" placeholder="상장기업/비상장기업/영리/비영리/공공 등">
+            <div class="message__company__type"></div>
+          </div>
+
+          <div class="join__company__detail">
+            <span>상세 업종</span>
+            <input type="text" id="company__type" name="company__type"  value="" placeholder="영업/기술/개발/연구/판매/서비스 등">
+            <div class="message__company__type"></div>
+          </div>
+        
+        </form>
+        <!-- 매니저 회원가입 -->
+        <form class="join__manager">
+
+          <div class="join__manager__detail">
+            <span>교직원 아이디</span>
+            <input type="text" id="manager__id" name="manager__id"  value="" placeholder="교직원 아이디를 입력하세요.">
+            <div class="message__manager__id"></div>
+          </div>
+
+          <div class="join__manager__detail">
+            <span>비밀번호</span>
+            <input type="password" id="manager__pw" name="manager__pw"  value="" placeholder="영문 숫자 특수문자를 포함해주세요." minlength="8" maxlength="20">
+            <div class="message__manager__pw"></div>
+          </div>
+
+          <div class="join__manager__detail">
+            <span>담당자 이름</span>
+            <input type="text" id="manager__name" name="manager__name"  value="" placeholder="이름 입력">
+            <div class="message__manager__name"></div>
+          </div>
+
+          <div class="join__manager__detail">
+            <span>부서명</span>
+            <input type="text" id="manager__name" name="manager__name"  value="" placeholder="부서명을 입력하세요.">
+            <div class="message__manager__name"></div>
+          </div>
+
+          <div class="join__manager__detail">
+            <span>부서 연락처</span>
+            <input type="text" id="manager__phone" name="manager__phone"  value="" placeholder="'-' 빼고 입력해주세요"  maxlength=15 pattern="\d{3}\d{4}\d{4}">
+            <div class="message__manager__phone"></div>
+          </div>
+
+          <div class="join__manager__detail">
+            <span>담당자 이메일</span>
+            <input type="email" id="manager__email" name="manager__email"  value="" placeholder="example@jcareer.ac.kr">
+            <div class="message__manager__email">지원에 관련된 정보를 받을 때 필요해요</div>
+          </div>
+
+        </form>
+
+          <div class="join__btn">
+            <button>인증 요청</button>
+          </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <div id="footer"></div>
+
+</body>
+</html>

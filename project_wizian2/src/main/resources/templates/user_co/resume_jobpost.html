@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/user_co/resume_jobpost.css">
+</head>
+
+<body>
+    <form name="goodDay" action="goodDay" method="post">
+        <div class="body_basic">
+            <div class="body_border">
+                <div class="body_class">
+                    <header>
+                        <div class="header_title">
+                            <img src="/demo/src/main/resources/static/img/LOGO.png" alt="" class="header_img">
+                            <h1>공고 등록</h1>
+                        </div>
+                        <div >
+                            <h3 class="header_hthree">공고 제목</h3><input type="text" class="header_main_title"
+                                placeholder="구직자가 혹할만한 제목을 정해주세요" >
+                        </div>
+                    </header>
+                    <div class="big_border">
+                        <middle>
+                            <div class="middle_big_title">
+                                <h2>모집분야</h2>
+                            </div>
+                            <div class="middle_box">
+                                <h5 class="middle_writer">직무, 직업</h5>
+                            </div>
+                            <div class="middle_box"><input type="text" class="middle_content"
+                                    placeholder="구직자가 잘 선택하도록 직무와 직업을 적어주세요.">
+                            </div>
+                            <div class="middle_box">
+                                <h5 class="middle_writer">모집분야</h5>
+                            </div>
+                            <div class="middle_box"><input type="text" class="middle_content"
+                                    placeholder="어떤 분야의 구직자를 구하는지 기입해주세요.">
+                            </div>
+                            <div>
+                                <h5 class="middle_writer">모집인원</h5>
+                            </div>
+                            <div class="middle_box"><input type="text" class="middle_content"
+                                    placeholder="모집인원을 써주세요"></div>
+                            <div class="middle_box">
+                                <h5 class="middle_writer">경력</h5>
+                            </div>
+                            <div class="middle_box"><input type="text" class="middle_content"
+                                    placeholder="신입을 원하는지 경력 몇년차를 원하는지 기입해주세요">
+                            </div>
+
+                        </middle>
+                        <middle_two>
+                            <div class="middle_big_title">
+                                <h2>지원자격 / 근무조건</h2>
+                            </div>
+                            <div class="middle_two_box">
+                                <h5 class="middle_two_writer">지원자 학력</h5>
+                            </div>
+                            <div class="middle_two_box_checkbox">
+                                <h5 class="middle_two_people"><input type="checkbox" class="middle_two_checkbox">졸업예정자
+                                    
+                                    가능<select id="" class="middle_two_select">
+                                        <option value="졸업">졸업</option>
+                                        <option value="졸업예정">졸업예정</option>
+                                        <option value="미졸업">미졸업</option>
+                                        <option value="학력무관">학력무관</option>
+
+                                    </select></h5>
+                            </div>
+                            <div class="middle_two_box">
+                                <h5 class="middle_two_writer">근무지역</h5>
+                            </div>
+                            <div class="middle_two_box"><input type="text" class="middle_two_content_content"
+                                    placeholder="구직자가 근무하여야 할 지역을 기입해주세요">
+                            </div>
+                            <div class="middle_two_box">
+                                <h5 class="middle_two_writer">근무형태</h5>
+                            </div>
+                            <div class="middle_two_box">
+                                <div class="middle_two_content">
+                                    <p class="middle_two_maintext"><input type="checkbox"
+                                            class="middle_two_checkbox">정규직</p>
+                                    <p class="middle_two_maintext"><input type="checkbox"
+                                            class="middle_two_checkbox">계약직</p>
+                                    <p class="middle_two_maintext"><input type="checkbox" class="middle_two_checkbox">인턴
+                                    </p>
+                                </div>
+                                <div class="middle_two_box">
+                                    <h5 class="middle_two_writer">급여</h5>
+                                    <h5 class="middle_two_writer">근무시간</h5>
+                                </div>
+                            </div>
+                            <div class="middle_two_box_good">
+                                <div class="middle_two_box_good_nice">
+                                    <p class="middle_two_content_box_hello"><input type="text" class="middle_two_content_box" placeholder="   급여을 적어주세요"><h4 class="middle_two_content_box_name">원</h4></p>
+                            </div>
+                            <div class="middle_two_box_good_nice">
+                                <p class="middle_two_content_box_hello"><h4 class="middle_two_content_box_feel">주</h4><input type="text" class="middle_two_content_box" placeholder="   근무시간을 적어주세요"><h4 class="middle_two_content_box_name_time">시간</h4></p>
+                            </div>
+                            </div>
+
+                        </middle_two>
+                        <middle_three>
+                            <div class="middle_big_title">
+                                <h2>인사담당자 / 기업정보</h2>
+                            </div>
+                            <div class="middle_three_box">
+                                <h5 class="middle_three_writer">담당자명</h5>
+                            </div>
+                            <div class="middle_three_box">
+                                <div class="middle_three_box"><input type="text" class="middle_three_content"
+                                        placeholder="담당자 이름을 적어주세요">
+                                </div>
+                            </div>
+                            <div class="middle_three_box">
+                                <h5 class="middle_three_writer">기업연락처</h5>
+                            </div>
+                            <div class="middle_three_box">
+                                <div class="middle_three_box"><input type="text" class="middle_three_content"
+                                        placeholder="담당자 연락처나 기업연락처를 적어주세요."></div>
+                            </div>
+                            <div class="middle_three_box">
+                                <h5 class="middle_three_writer">이메일</h5>
+                            </div>
+                            <div class="middle_three_box">
+                                <div><input type="text" class="middle_three_content" placeholder="메일을 적어주세요."></div>
+                            </div>
+                            <div class="middle_three_box">
+                                <h5 class="middle_three_writer">업종</h5>
+                            </div>
+                            <div class="middle_three_box">
+                                <div><select class="middle_three_content_select">
+                                        <option value="IT 업종">IT 업종</option>
+                                        <option value="서비스 업종">서비스 업종</option>
+                                        <option value="화장품 업종">화장품 업종</option>
+                                        <option value="식품 업종">식품 업종</option>
+                                        <option value="e스포츠 업종">e스포츠 업종 </option>
+                                        <option value="스포츠 업종">스포츠 업종</option>
+                                        <option value="교육 업종">교육 업종</option>
+
+                                        <option value="의료업종">의료업종</option>
+                                        <option value="애니메이션 업종">애니메이션 업종</option>
+                                        <option value="영화 업종">영화 업종</option>
+
+                                    </select></div>
+                            </div>
+                            <div class="middle_three_box">
+                                <h5 class="middle_three_writer">핸드폰번호</h5>
+                            </div>
+                            <div class="middle_three_box">
+                                <div><input type="text" class="middle_three_content" placeholder="휴대폰 번호 입력('-'제외)">
+                                </div>
+                            </div>
+                            <div class="middle_three_box">
+                                <h5 class="middle_three_writer">담당자 부서명</h5>
+                            </div>
+                            <div class="middle_three_box">
+                                <div><input type="text" class="middle_three_content" placeholder="부서명을 적어주새요."></div>
+                            </div>
+
+                        </middle_three>
+                        <footer>
+
+                            <div class="footer_box"><input type="checkbox" id="" class="footer_checkbox">등록한 공고는 사이트에 개제됩니다. 단 사이트 규정에 따라 등록이 거절이 될 수도 있습니다.</div>
+                            <div class="footer_button_box"><button class="blue" id="">공고 등록</button><button
+                                    class="yellow" id="">등록취소</button></div>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
