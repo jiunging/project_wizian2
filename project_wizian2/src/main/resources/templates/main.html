@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
 </head>
 <body>
   
-  <div id="header"></div>
+  <div th:include="/include_main/header_main"></div>
 
   <section>
 
@@ -25,15 +25,15 @@
       <div class="section__second__title"><span>학생 | 기업 | 교직원</span></div>
 
       <div class="section__second__menu">
-        <a href="/html/user/login.html">
+        <a href="/user/join">
           <div class="section__menu__student"></div>
           <span>학생</span>
         </a>
-        <a href="/html/user/login.html">
+        <a href="/user/join">
           <div class="section__menu__company"></div>
           <span>기업</span>
         </a>
-        <a href="/html/user/login.html">
+        <a href="/user/join">
           <div class="section__menu__manager"></div>
           <span>교직원</span>
         </a>
@@ -108,7 +108,7 @@
 
   </section>
 
-  <div id="footer"></div>
+  <div th:include="/include_main/footer_main"></div>
 
 </body>
 </html>
