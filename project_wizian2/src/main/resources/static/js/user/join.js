@@ -47,7 +47,7 @@ $(document).ready(function(){
 
 });
 
-// 생년월일
+/*// 생년월일
 $(document).ready(function(){
 
   $("#student__birth").keyup( function(){
@@ -62,7 +62,7 @@ $(document).ready(function(){
     }
   });
 
-});
+});*/
 
 // 휴대번호
 $(document).ready(function(){
@@ -76,7 +76,7 @@ $(document).ready(function(){
     phoneNumber = phoneNumber.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
     var formattedPhoneNumber = '';
 
-    if (phoneNumber.length >= 3) {
+/*    if (phoneNumber.length >= 3) {
         formattedPhoneNumber += phoneNumber.substr(0, 3);
         if (phoneNumber.length >= 7) {
             formattedPhoneNumber += '-' + phoneNumber.substr(3, 4) + '-' + phoneNumber.substr(7, 4);
@@ -85,8 +85,8 @@ $(document).ready(function(){
         }
     } else {
         formattedPhoneNumber += phoneNumber;
-    }
-
+    }*/
+	formattedPhoneNumber += phoneNumber;
     return formattedPhoneNumber;
 }
 
@@ -165,7 +165,7 @@ $(document).ready(function(){
     phoneNumber = phoneNumber.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
     var formattedPhoneNumber = '';
 
-    if (phoneNumber.length >= 3) {
+ /*   if (phoneNumber.length >= 3) {
         formattedPhoneNumber += phoneNumber.substr(0, 3);
         if (phoneNumber.length >= 7) {
             formattedPhoneNumber += '-' + phoneNumber.substr(3, 4) + '-' + phoneNumber.substr(7, 4);
@@ -174,8 +174,8 @@ $(document).ready(function(){
         }
     } else {
         formattedPhoneNumber += phoneNumber;
-    }
-
+    }*/
+	formattedPhoneNumber += phoneNumber;
     return formattedPhoneNumber;
 }
 
@@ -253,7 +253,7 @@ $(document).ready(function(){
     phoneNumber = phoneNumber.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거
     var formattedPhoneNumber = '';
 
-    if (phoneNumber.length >= 3) {
+ /*   if (phoneNumber.length >= 3) {
         formattedPhoneNumber += phoneNumber.substr(0, 3);
         if (phoneNumber.length >= 7) {
             formattedPhoneNumber += '-' + phoneNumber.substr(3, 4) + '-' + phoneNumber.substr(7, 4);
@@ -262,8 +262,8 @@ $(document).ready(function(){
         }
     } else {
         formattedPhoneNumber += phoneNumber;
-    }
-
+    }*/
+	formattedPhoneNumber += phoneNumber;
     return formattedPhoneNumber;
 }
 
