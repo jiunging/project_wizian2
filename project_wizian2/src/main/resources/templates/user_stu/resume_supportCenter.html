@@ -33,9 +33,37 @@
     </header>
 
     <section id="middle">
-      <form action="#" method="post">
+      <form action="/user_stu/resume_supportCenterForm" method="post" class="submitForm">
 
         <div class="realbixbox">
+        
+                  <div class="bigbox"> <!--제일 큰 박스-->
+
+            <div class="middlebox">
+              
+              <div class="leftmiddlebox">
+                <!-- 인적사항 / 왼쪽부분 -->
+                <div class="leftleftmiddlebox">
+                  이력서 제목
+                </div>
+              </div>
+
+              <div class="rightmiddlebox">
+
+                <!-- 성명, 주소 / 오른쪽 부분 -->
+                <div class="rightrightmiddlebox">
+                  <ul>
+                    <li>제목</li>
+                    <p><input type="text" class="inputName" name="title" required></p>
+                  </ul>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
 
           <div class="bigbox"> <!--제일 큰 박스-->
 
@@ -54,7 +82,7 @@
                 <div class="rightrightmiddlebox">
                   <ul>
                     <li>성명</li>
-                    <p><input type="text" class="inputName"></p>
+                    <p><input type="text" class="inputName" name="stu_name" required></p>
                   </ul>
 
                   <ul style="border: none;">
@@ -64,12 +92,12 @@
 
                   <ul style="border: none;">
                     <li>우편번호</li>
-                    <p><input type="text" id="sample6_postcode" placeholder="우편번호"></p>
+                    <p><input type="text" id="sample6_postcode" placeholder="우편번호" required></p>
                   </ul>
 
                   <ul style="border: none;">
                     <li>주소</li>
-                    <p><input type="text" id="sample6_address" placeholder="주소"><br></p>
+                    <p><input type="text" id="sample6_address" placeholder="주소" name="stu_address"><br></p>
                   </ul>
                   
                   <ul style="border: none;">
@@ -79,7 +107,7 @@
 
                   <ul style="border: none;">
                     <li>상세주소</li>
-                    <p><input type="text" id="sample6_detailAddress" placeholder="상세주소"></p>
+                    <p><input type="text" id="sample6_detailAddress" placeholder="상세주소" name="stu_address_detail" required></p>
                   </ul>
 
 
@@ -90,15 +118,15 @@
                   </ul>
                   <ul>
                     <li>휴대전화</li>
-                    <p><input type="text" class="inputPhone"></p>
+                    <p><input type="text" class="inputPhone" name="stu_phone" required></p>
                   </ul>
                   <ul>
                     <li>Email</li>
-                    <p><input type="text" class="inputEmail"></p>
+                    <p><input type="text" class="inputEmail" name="stu_email" required></p>
                   </ul>
                   <ul>
                     <li>나이</li>
-                    <p><input type="text" class="inputAge"></p>
+                    <p><input type="text" class="inputAge" name="stu_age" required></p>
                   </ul>
                 </div>
 
@@ -126,7 +154,7 @@
                   <button type="button" onclick="copyUL()">자격증 추가</button>
                   <ul class="certificateUl">
                     <li>자격증명</li>
-                    <p><input type="text" class="inputName"></p>
+                    <p><input type="text" class="inputName" name="stu_certi_name"></p>
                   </ul>
                 </div>
 
@@ -190,21 +218,21 @@
                   <ul>
                     <li>기간</li>
                     <p>
-                    <input type="date" id="datepicker" style="float: none;"> ~
-                    <input type="date" id="datepicker" style="float: none;">
+                    <input type="date" id="datepicker" class="stu_jobstartdate" style="float: none;" name="stu_jobstartdate"> ~
+                    <input type="date" id="datepicker" class="stu_jobenddate" style="float: none;" name="stu_jobenddate">
                     </p>
                   </ul>
                   <ul>
                     <li>회사명</li>
-                    <p><input type="text"></p>
+                    <p><input type="text" name="stu_jobcompname" ></p>
                   </ul>
                   <ul>
                     <li>직급</li>
-                    <p><input type="text"></p>
+                    <p><input type="text" name="joblevel"></p>
                   </ul>
                   <ul>
                     <li>수행업무</li>
-                    <p><input type="text"></p>
+                    <p><input type="text" name="stu_jobwork"></p>
                   </ul>
                 </div>
 
@@ -236,15 +264,15 @@
                   <button type="button" onclick="addAwards()">수상내역 추가</button>
                   <ul>
                     <li>대회명</li>
-                    <p><input type="text" class=""></p>
+                    <p><input type="text" class="" name="stu_awardname"></p>
                   </ul>
                   <ul>
                     <li>수상</li>
-                    <p><input type="text" class=""></p>
+                    <p><input type="text" class="" name="" ></p>
                   </ul>
                   <ul>
                     <li>대회기관명</li>
-                    <p><input type="text" class=""></p>
+                    <p><input type="text" class="" name="stu_awardcompname"></p>
                   </ul>
                 </div>
 
@@ -305,6 +333,7 @@
                   <ul>
                     <li>희망직종</li>
                     <select>
+                      <option value="choose">선택하기</option>
                       <option value="IT">IT</option>
                       <option value="SALES">영업</option>
                       <option value="MARKETING">마케팅</option>
@@ -338,7 +367,7 @@
                 <div class="rightrightmiddlebox">
                   <ul>
                     <li>희망임금</li>
-                    <input type="text" class="" id="inputWage" style="float: left;">
+                    <input type="text" class="" id="inputWage" style="float: left;" name="stu_wage">
                     <li>만원</li>
                   </ul>
                 </div>
@@ -466,12 +495,35 @@ imgTarget.on('change', function() {
 
 
   <script>
+  
+  var startDate = document.querySelector('.stu_jobstartdate').value;
+  var um = document.querySelector('.stu_jobstartdate');
+  var endDate = document.querySelector('.stu_jobenddate').value;
 
+  // startDate와 endDate가 비어있는 경우 NULL로 설정
+  if(startDate === "") {
+      startDate = null;
+      console.log(startDate);
+  }
+  if(endDate === "") {
+      endDate = null;
+      console.log(endDate);
+  }
+  
+  
+/* 
     $(".inputName").on("input", function() {
       var inputVal = $(this).val();
       $(".header_resume_name").text(inputVal);
     })
-
+    
+    if(!$(".stu_jobstartdate")) {
+    	$(".stu_jobstartdate").value = null;
+    }
+    if(!$(".stu_jobenddate")) {
+    	$(".stu_jobenddate").value = null;
+    }
+ */
 
 
     // 자격증 추가
