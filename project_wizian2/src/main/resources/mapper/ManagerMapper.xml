@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.example.project_wizian2.manager.service.ManagerMapper">
+  	<select id="getList" resultType="ManagerResumeListVO">
+  		select * from TEST_RESUME
+  	</select>
+  	
+  	<select id="umList" resultType="ResumeVO">
+  		select * from TEST_RESUME
+  	</select>
+  	
+  	
+  </mapper>
