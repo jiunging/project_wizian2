@@ -31,6 +31,12 @@ public class UserServiceImpl implements UserService{
 		return usermapper.man_regist(vo);
 	}
 
+	@Override
+	public StudentVO stu_idcheck(StudentVO vo) {
+		
+		return usermapper.stu_idcheck(vo);
+	}
+
 
 	
 

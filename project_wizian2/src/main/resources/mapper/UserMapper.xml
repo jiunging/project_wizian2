@@ -33,7 +33,9 @@
 	</insert>
 
 
-
+	<select id="stu_idcheck" resultType="StudentVO">
+		select * from STUDENT where stu_id = #{stu_id};
+	</select>
 
 
 

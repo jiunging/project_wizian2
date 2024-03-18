@@ -9,5 +9,7 @@ public interface UserService {
 	public int stu_regist(StudentVO vo);
 	public int com_regist(CompanyVO vo);
 	public int man_regist(ManagerVO vo);
+
+	public StudentVO stu_idcheck(StudentVO vo);
 	
 }

@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.project_wizian2.command.CompanyVO;
 import com.example.project_wizian2.command.ManagerVO;
@@ -31,9 +33,18 @@ public class UserController {
 	}
 	
 	@PostMapping("/login")
-	public String loginForm(String username) {
+	public String loginForm(StudentVO vo, CompanyVO vo2, ManagerVO vo3 ) {
 		
-		System.out.println(username);
+		System.out.println(vo);
+		System.out.println(vo2);
+		System.out.println(vo3);
+		
+		String id = userservice.stu_idcheck(vo).getStu_id();
+		String pw = userservice.stu_idcheck(vo).getStu_pw();
+		
+		if(vo.getStu_id().equals(id) &&  vo.getStu_pw().equals(pw)) {
+			System.out.println("YES!!!");
+		}
 		
 		
 		return "/user/login";
