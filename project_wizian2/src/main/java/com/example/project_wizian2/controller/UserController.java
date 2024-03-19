@@ -1,5 +1,7 @@
 package com.example.project_wizian2.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,7 +42,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/login")
-	public String loginForm(StudentVO vo, CompanyVO vo2, ManagerVO vo3, Model model) {
+	public String loginForm(StudentVO vo, CompanyVO vo2, ManagerVO vo3, Model model, HttpSession session) {
 		
 		
 		if(vo.getStu_id() != null) {
@@ -59,7 +61,8 @@ public class UserController {
 					
 					if(vo.getStu_id().equals(stu_id) &&  vo.getStu_pw().equals(stu_pw)) {
 						System.out.println("YES!!!");
-						return "redirect:/user_stu/myhome_stu";
+						session.setAttribute("user_id", stu_id);
+						return "redirect:/user_stu/home";
 					
 					}else {
 						
@@ -88,7 +91,6 @@ public class UserController {
 					
 					if(vo2.getCom_id().equals(com_id) &&  vo2.getCom_pw().equals(com_pw)) {
 						System.out.println("login successful");
-						
 						return "redirect:/user_co/co_home";
 					}else {
 						return "/user/login";
