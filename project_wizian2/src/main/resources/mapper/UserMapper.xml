@@ -37,8 +37,13 @@
 		select * from STUDENT where stu_id = #{stu_id};
 	</select>
 
+	<select id="com_idcheck" resultType="CompanyVO">
+		select * from COMPANY where com_id = #{com_id};
+	</select>
 
-
+	<select id="man_idcheck" resultType="ManagerVO">
+		select * from MANAGER where man_id = #{man_id};
+	</select>
 
 </mapper>
 
