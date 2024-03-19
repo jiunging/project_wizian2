@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResumeVO {
+	private Integer resume_num;
 	private String title;
 	private String stu_name;
 	private String stu_address;

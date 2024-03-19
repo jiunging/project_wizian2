@@ -15,6 +15,8 @@ public interface ManagerMapper {
 	
 	public ArrayList<ResumeVO> umList();
 	
+	public ArrayList<ResumeVO> resumeDetail(int resume_num);
+
 	// 1. 채용 공고 등록 승인 여부
 	void updatePostStatus(@Param("title") String title, @Param("yn") String yn);
 	// 2. 승인된 공고만 화면 표출

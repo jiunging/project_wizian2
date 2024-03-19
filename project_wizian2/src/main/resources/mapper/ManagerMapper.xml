@@ -20,5 +20,9 @@
   		select * from manager where yn = "y"
   	</select>
   	
+  	<select id="resumeDetail" resultType="ResumeVO">
+  		select * from TEST_RESUME where resume_num = #{resume_num}
+  	</select>
+  	
   	
   </mapper>

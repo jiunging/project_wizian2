@@ -31,6 +31,11 @@ public class ManagerServiceImpl implements ManagerService{
 	}
 
 
+	@Override
+	public ArrayList<ResumeVO> resumeDetail(int resume_num) {
+		
+		return managerMapper.resumeDetail(resume_num);
+	}
 	// 채용공고 승인 여부
 	@Override
 	public void updatePostStatus(String title, String yn) {
@@ -45,8 +50,6 @@ public class ManagerServiceImpl implements ManagerService{
 		
 		return managerMapper.updatePost();
 	}
-
-
 	
 	
 
