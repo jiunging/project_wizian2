@@ -11,5 +11,9 @@ public interface ManagerService {
 	
 	public ArrayList<ResumeVO> umList();
 	
+	// 1. 채용 공고 등록 승인 여부
+	public void updatePostStatus(String title, String yn);
+	// 2. 승인된 공고만 화면 표출
+	public ArrayList<ManagerResumeListVO> updatePost();
 
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="UTF-8" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,24 +24,9 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>1</td>
-        <td><a href="/student/comp_popup">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
-        <td>2024-03-15</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td><a href="#">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
-        <td>2024-03-15</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td><a href="#">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
-        <td>2024-03-15</td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td><a href="#">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
+    <tr th:each="list : ${list}">
+        <td th:text="${list.title}">1</td>
+        <td th:text="${list.title_name}"><a href="/student/comp_popup">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
         <td>2024-03-15</td>
     </tr>
     </tbody>
