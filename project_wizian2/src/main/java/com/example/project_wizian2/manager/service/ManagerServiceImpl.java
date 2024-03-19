@@ -12,24 +12,41 @@ import com.example.project_wizian2.command.ResumeVO;
 public class ManagerServiceImpl implements ManagerService{
 	
 	@Autowired
-	ManagerMapper managerMapper;
+	private ManagerMapper managerMapper;
 
 	@Override
 	public ArrayList<ManagerResumeListVO> getList() {
 		
-		System.out.println("서비스: " + managerMapper.getList());
+		//System.out.println("서비스: " + managerMapper.getList());
 		
 		return managerMapper.getList();
 	}
 
-	
 	@Override
 	public ArrayList<ResumeVO> umList() {
 		
-		System.out.println("umlist 서비스: " + managerMapper.umList());
+		//System.out.println("umlist 서비스: " + managerMapper.umList());
 		
 		return managerMapper.umList();
 	}
+
+
+	// 채용공고 승인 여부
+	@Override
+	public void updatePostStatus(String title, String yn) {
+		
+		System.out.println("서비스 실행");
+		managerMapper.updatePostStatus(title, yn);
+	}
+	
+	// 2. 승인된 공고만 화면 표출
+	@Override
+	public ArrayList<ManagerResumeListVO> updatePost() {
+		
+		return managerMapper.updatePost();
+	}
+
+
 	
 	
 

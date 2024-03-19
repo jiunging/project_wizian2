@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="UTF-8" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="notice__header"><span>채용 공고 승인 요청</span></div>
+  <div class="notice__header"><span>채용 공고</span></div>
 
   <table class="apply_table">
     <colgroup>
@@ -20,34 +20,28 @@
         <th>번호</th>
         <th>채용 공고 명</th>
         <th>등록일</th>
-        <th>승인 여부</th>
+        <th style="width: 100px;">승인 여부</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>1</td>
-        <td><a href="/student/comp_popup">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
+    <tr th:each="list : ${list}">
+        <td th:text="${list.title}">1</td>
+        <td><a href="/student/comp_popup"><span th:text="${list.title_name}"></span></a></td>
         <td>2024-03-15</td>
-        <td style="width: 60px;"><button style="margin-right: 10px;">승인</button><button>거절</button></td>
+        <td style="display:flex; width: 100px">
+        <form th:action="@{/user_mn/approve/{title}(title=${list.title})}" method="post">
+            <input type="hidden" name="title" th:value="${list.title}"/>
+            <input type="hidden" name="title_name" th:value="${list.title_name}"/>
+            <input type="hidden" name="title_name" th:value="${list.yn}"/>
+            <button type="submit" style="margin-right: 10px;">승인</button>
+       	</form>
+           
+           <form th:action="@{/user_mn/reject/{title}(title=${list.title})}" method="post">
+            <input type="hidden" id="reject" name="title" th:value="${list.title}"/>
+            <button type="submit">거절</button>
+       	</form>
     </tr>
-    <tr>
-        <td>2</td>
-        <td><a href="#">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
-        <td>2024-03-15</td>
-        <td style="width: 60px;"><button style="margin-right: 10px;">승인</button><button>거절</button></td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td><a href="#">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
-        <td>2024-03-15</td>
-        <td style="width: 60px;"><button style="margin-right: 10px;">승인</button><button>거절</button></td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td><a href="#">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
-        <td>2024-03-15</td>
-        <td style="width: 60px;"><button style="margin-right: 10px;">승인</button><button>거절</button></td>
-    </tr>
+   
     </tbody>
   </table>
 </body>

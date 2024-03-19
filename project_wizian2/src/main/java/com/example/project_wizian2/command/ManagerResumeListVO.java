@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class ManagerResumeListVO {
-	private String listNum;
 	private String title;
-	private String today;
+	private String title_name;
+	private String yn;
 }

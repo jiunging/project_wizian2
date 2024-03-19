@@ -5,11 +5,19 @@
   
   <mapper namespace="com.example.project_wizian2.manager.service.ManagerMapper">
   	<select id="getList" resultType="ManagerResumeListVO">
-  		select * from TEST_RESUME
+  		select * from manager where yn = "t"
   	</select>
   	
-  	<select id="umList" resultType="ResumeVO">
-  		select * from TEST_RESUME
+<!--   	<select id="umList" resultType="ResumeVO">
+  		select * from manager
+  	</select> -->
+  	
+  	<update id="updatePostStatus">
+  		update manager set yn = #{yn} where title = #{title}
+  	</update>
+  	
+  	<select id="updatePost" resultType="ManagerResumeListVO">
+  		select * from manager where yn = "y"
   	</select>
   	
   	
