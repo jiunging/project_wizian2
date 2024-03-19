@@ -21,5 +21,7 @@ public interface ManagerMapper {
 	void updatePostStatus(@Param("title") String title, @Param("yn") String yn);
 	// 2. 승인된 공고만 화면 표출
 	public ArrayList<ManagerResumeListVO> updatePost();
+	// 3. 거절 시 삭제
+	public void deletePost(String title);
 	
 }

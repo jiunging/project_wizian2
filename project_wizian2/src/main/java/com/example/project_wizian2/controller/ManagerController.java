@@ -33,8 +33,10 @@ public class ManagerController {
 		
 		ArrayList<ManagerResumeListVO> list = managerService.getList();
 		ArrayList<ManagerResumeListVO> updatePost = managerService.updatePost();
+		ArrayList<ResumeVO> resumeList = managerService.umList();
 		model.addAttribute("list", list);
 		model.addAttribute("updatePost", updatePost);
+		model.addAttribute("resumeList", resumeList);
 		return "user_mn/mn_myhome";
 	}
 	
@@ -51,6 +53,9 @@ public class ManagerController {
     public String rejectPost(@RequestParam("title") String title) {
     	System.out.println("업데이트 컨트롤러 시작 : " + title);
     	managerService.updatePostStatus(title, "N");
+    	
+    	managerService.deletePost(title);
+    	
         return "redirect:/user_mn/co_hire_mn"; // 거절 후 게시글 목록 페이지로 리다이렉트
     }
     
@@ -102,6 +107,8 @@ public class ManagerController {
 		
 		return "/user_mn/result_resume";
 	}
+	
+	
 
 	
 	

@@ -17,5 +17,7 @@ public interface ManagerService {
 	public void updatePostStatus(String title, String yn);
 	// 2. 승인된 공고만 화면 표출
 	public ArrayList<ManagerResumeListVO> updatePost();
+	// 3. 거절 시 삭제
+	public void deletePost(String title);
 
 }
