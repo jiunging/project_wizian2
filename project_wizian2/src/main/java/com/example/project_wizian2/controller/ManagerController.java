@@ -54,5 +54,21 @@ public class ManagerController {
 		return "/user_mn/resume_mn";
 	}
 	
+	@GetMapping("/result_resume")
+	public String result_resume(int resume_num
+								,Model model) {
+		
+		System.out.println("컨트롤러 출발");
+		
+		ArrayList<ResumeVO> list = managerService.resumeDetail(resume_num);
+		model.addAttribute("vo", list);
+		System.out.println("컨트롤러 도착");
+		System.out.println(list);
+		
+		return "/user_mn/result_resume";
+	}
+	
+	
+	
 
 }

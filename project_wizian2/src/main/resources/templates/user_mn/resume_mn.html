@@ -17,15 +17,15 @@
     </colgroup>
     <thead>
     <tr>
-        <th>번호</th>
+        <th>이력서번호</th>
         <th>제목</th>
         <th>등록일</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="vo, status : ${vo}">
-        <td th:text="${status.index + 1}">1</td>
-        <td><a href="/student/comp_popup" th:text="${vo.title}"></a></td>
+        <td th:text="${vo.resume_num}">1</td>
+		<td><a th:href="@{/user_mn/result_resume(resume_num=${vo.resume_num})}" th:text="${vo.title}"></a></td>
         <td>2024-03-15</td>
     </tr>
     </tbody>

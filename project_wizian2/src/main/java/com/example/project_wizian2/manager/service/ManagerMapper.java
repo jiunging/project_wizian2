@@ -14,4 +14,6 @@ public interface ManagerMapper {
 	
 	public ArrayList<ResumeVO> umList();
 	
+	public ArrayList<ResumeVO> resumeDetail(int resume_num);
+	
 }

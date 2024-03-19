@@ -30,6 +30,13 @@ public class ManagerServiceImpl implements ManagerService{
 		
 		return managerMapper.umList();
 	}
+
+
+	@Override
+	public ArrayList<ResumeVO> resumeDetail(int resume_num) {
+		
+		return managerMapper.resumeDetail(resume_num);
+	}
 	
 	
 

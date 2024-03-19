@@ -10,6 +10,22 @@ public interface ManagerService {
 	public ArrayList<ManagerResumeListVO> getList();
 	
 	public ArrayList<ResumeVO> umList();
+	public ArrayList<ResumeVO> resumeDetail(int resume_num);
 	
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
