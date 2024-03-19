@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@
     <div class="section__right__header">
     <div class="right__header__img"><img src="/img/default.png" alt="기본이미지"></div>
     <div class="right__header__info">
-      <p>session.name 님 <span id="info1">session.학번</span></p>
+      <p>session.name 님 <span id="info1" th:text="${user_id}"></span></p>
       <span id="info2">session.학과</span>
       <span id="info3">session.학점</span>
     </div>

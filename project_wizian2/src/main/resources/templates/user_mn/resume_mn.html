@@ -17,30 +17,15 @@
     </colgroup>
     <thead>
     <tr>
-        <th>번호</th>
-        <th>제목</th>
+        <th>이력서 번호</th>
+        <th>이력서 제목</th>
         <th>등록일</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>1</td>
-        <td><a href="/student/comp_popup" th:text="${vo}"></a></td>
-        <td>2024-03-15</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td><a href="#">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
-        <td>2024-03-15</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td><a href="#">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
-        <td>2024-03-15</td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td><a href="#">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
+    <tr th:each="vo, status : ${vo}">
+        <td th:text="${vo.resume_num}">1</td>
+		<td><a th:href="@{/user_mn/result_resume(resume_num=${vo.resume_num})}" th:text="${vo.title}"></a></td>
         <td>2024-03-15</td>
     </tr>
     </tbody>

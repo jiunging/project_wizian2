@@ -1,12 +1,18 @@
 package com.example.project_wizian2.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.project_wizian2.command.ManagerResumeListVO;
 import com.example.project_wizian2.command.ResumeVO;
+import com.example.project_wizian2.manager.service.ManagerService;
 import com.example.project_wizian2.resume.service.ResumeService;
 
 @Controller
@@ -14,7 +20,10 @@ import com.example.project_wizian2.resume.service.ResumeService;
 public class StudentController {
 	
 	@Autowired
-	ResumeService resumeService;
+	private ResumeService resumeService;
+	
+	@Autowired
+	private ManagerService managerService;
 	
 	@GetMapping("/applyList_stu")
 	public String applyList_stu() {
@@ -32,7 +41,11 @@ public class StudentController {
 	}
 	
 	@GetMapping("/notice_stu")
-	public String notice_stu() {
+	public String notice_stu(Model model) {
+		
+		ArrayList<ManagerResumeListVO> list = managerService.updatePost();
+		model.addAttribute("list", list);
+		
 		return "/user_stu/notice_stu";
 	}
 	
@@ -51,15 +64,12 @@ public class StudentController {
 	@PostMapping("/resume_supportCenterForm") 
 	public String resume_supportCenterForm(ResumeVO vo) {
 		
-		System.out.println("컨트롤러 출발~~!");
-		
-		System.out.println("vo의 값: " + vo);
 		resumeService.registResume(vo);
-		
-		System.out.println("컨트롤러 도착~~!");
 		
 		return "/user_stu/myhome_stu";
 	}
+	
+
 	
 	
 	

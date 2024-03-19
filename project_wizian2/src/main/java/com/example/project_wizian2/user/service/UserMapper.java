@@ -13,4 +13,8 @@ public interface UserMapper {
 	public int com_regist(CompanyVO vo);
 	public int man_regist(ManagerVO vo);
 	
+	public StudentVO stu_idcheck(StudentVO vo);
+	public CompanyVO com_idcheck(CompanyVO vo);
+	public ManagerVO man_idcheck(ManagerVO vo);
+	
 }

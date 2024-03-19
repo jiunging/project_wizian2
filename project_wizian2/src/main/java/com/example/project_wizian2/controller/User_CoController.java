@@ -1,15 +1,30 @@
 package com.example.project_wizian2.controller;
 
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.project_wizian2.command.ResumeVO;
+import com.example.project_wizian2.manager.service.ManagerService;
 
 @Controller
 @RequestMapping("/user_co")
 public class User_CoController {
 	
+	@Autowired
+	private ManagerService managerService;
+	
+	// 인재리스트
 	@GetMapping("/apply_co")
-	public String apply_co() {
+	public String apply_co(Model model) {
+		
+		ArrayList<ResumeVO> list = managerService.umList();
+		model.addAttribute("list", list);
+		System.out.println(list);
 		
 		return "/user_co/apply_co";
 	}
@@ -43,5 +58,7 @@ public class User_CoController {
 		
 		return "/user_co/resume_jobpost";
 	}
+	
+
 
 }
