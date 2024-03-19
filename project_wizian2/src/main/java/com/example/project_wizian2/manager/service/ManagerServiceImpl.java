@@ -50,6 +50,13 @@ public class ManagerServiceImpl implements ManagerService{
 		
 		return managerMapper.updatePost();
 	}
+
+	// 3. 거절 시, 공고 삭제
+	@Override
+	public void deletePost(String title) {
+		
+		managerMapper.deletePost(title);
+	}
 	
 	
 
