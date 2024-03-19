@@ -54,7 +54,7 @@
                 <div class="rightrightmiddlebox">
                   <ul>
                     <li>제목</li>
-                    <p><input type="text" class="inputName" name="title" required></p>
+                    <p><input type="text" class="inputTitle" name="title" required></p>
                   </ul>
 
                 </div>
@@ -511,11 +511,14 @@ imgTarget.on('change', function() {
   }
   
   
-/* 
+
+  // 이름 적으면 이력서에 이름 나오는거 
     $(".inputName").on("input", function() {
       var inputVal = $(this).val();
       $(".header_resume_name").text(inputVal);
     })
+    
+    /* 
     
     if(!$(".stu_jobstartdate")) {
     	$(".stu_jobstartdate").value = null;
