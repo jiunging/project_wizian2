@@ -13,9 +13,9 @@ import lombok.NoArgsConstructor;
 @Builder
 public class JobVO {
 	private Integer prodd_id;
-	
-	private String header_main_title;
-	private String company_title;
+	private String title_name;
+	private String title;
+	private String yn;
 	private String middle_content;
 	private String middle_content_category;
 	private String middle_middle_people;

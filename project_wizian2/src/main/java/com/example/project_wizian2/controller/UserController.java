@@ -64,6 +64,7 @@ public class UserController {
 						
 						System.out.println("YES!!!");
 						session.setAttribute("user_id", stu_id);
+						session.setAttribute("auth", "stu");
 						return "redirect:/user_stu/home";
 					
 					}else {
@@ -92,8 +93,11 @@ public class UserController {
 					String com_pw = userservice.com_idcheck(vo2).getCom_pw();
 					
 					if(vo2.getCom_id().equals(com_id) &&  vo2.getCom_pw().equals(com_pw)) {
+						
 						System.out.println("login successful");
 						session.setAttribute("user_id", com_id);
+						session.setAttribute("auth", "com");
+						
 						return "redirect:/user_co/co_home";
 					}else {
 						return "/user/login";
@@ -122,6 +126,7 @@ public class UserController {
 
 						session.setAttribute("user_id", man_id);
 						session.setAttribute("user_email", man_email);
+						session.setAttribute("auth", "man");
 						
 						return "redirect:/user_mn/mn_home";
 					}else {
@@ -162,17 +167,15 @@ public class UserController {
 		return "redirect:/user/login";
 	}
 	
-	@GetMapping("/logout")
-	public String logout(HttpServletRequest request) {
-		HttpSession session = request.getSession(false);
-		
-		System.out.println(session);
-		if(session != null) {
-			session.invalidate();
-		}
-		
-		return "redirect:/user";
-	}
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        return "redirect:/user/login";
+    }
 	
 	
 }

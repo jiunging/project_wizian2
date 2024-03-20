@@ -27,6 +27,7 @@ public class StudentController {
 	
 	@GetMapping("/applyList_stu")
 	public String applyList_stu() {
+		
 		return "/user_stu/applyList_stu";
 	}
 
@@ -44,11 +45,15 @@ public class StudentController {
 		return "/user_stu/myhome_stu";
 	}
 	
+	// 학생 입장에서 보는 채용공고
 	@GetMapping("/notice_stu")
 	public String notice_stu(Model model) {
+		System.out.println("채용공고냐?");
 		
 		ArrayList<ManagerResumeListVO> list = managerService.updatePost();
 		model.addAttribute("list", list);
+		
+		System.out.println("채용공고 페이지 속 list: " + list);
 		
 		return "/user_stu/notice_stu";
 	}

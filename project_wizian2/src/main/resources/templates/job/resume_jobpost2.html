@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
+
 <style>
 * {
 	margin: 0;
@@ -314,21 +315,21 @@ img {
 					<header>
 						<div class="header_title">
 
-							<img src="../../static/img/LOGO.png" alt="" class="header_img">
 							<h1>공고 등록</h1>
 						</div>
 						
 						<div>
 							<h3 class="header_hthree">공고 제목</h3>
-							<div class="header_main_title" th:text="${vo.header_main_title}"
-							>[[${vo.header_main_title}]]</div>
+
+							<div class="header_main_title" th:text="${vo.title_name}">[[${vo.title_name}]]</div>
 						</div>
                         <div>
 							<h3 class="header_hthree">회사명</h3>
-							<div class="header_main_title" th:text="${vo.company_title}"
-								 name="company_title">[[${vo.company_title}]]</div>
+							<div class="header_main_title" th:text="${vo.title}" name="company_title">[[${vo.title}]]</div>
 						</div>
+						
 					</header>
+					
 					<div class="big_border">
 						<middle>
 						<div class="middle_big_title">
@@ -367,6 +368,7 @@ img {
 						</div>
 
 						</middle>
+						
 						<middle_two>
 						<div class="middle_big_title">
 							<h2>지원자격 / 근무조건</h2>

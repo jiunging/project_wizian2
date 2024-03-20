@@ -2,11 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.project_wizian2.job.service.JobMapper">
     <insert id="regist" parameterType="map">
-        INSERT INTO JOBS (
+        INSERT INTO MANAGER_TEST (
       
-			
-            header_main_title,
-            company_title,
+			title_name,
+			title,
             middle_content,
             middle_content_category,
             middle_middle_people,
@@ -29,9 +28,8 @@
             
         )
         VALUES (
-        
-            #{header_main_title},
-            #{company_title},
+            #{title_name},
+            #{title},
             #{middle_content},
             #{middle_content_category},
             #{middle_middle_people},
@@ -58,12 +56,12 @@
     
 <select id="select" resultType="com.example.project_wizian2.command.JobVO">
     SELECT *
-    FROM JOBS
+    FROM MANAGER_TEST
     WHERE prodd_id = #{prodd_id}
 </select>
 <select id="getList" resultType="com.example.project_wizian2.command.JobVO">
  		select * 
- 		from JOBS 
+ 		from MANAGER_TEST 
  		
  		order by prodd_id 
  		limit #{pageStart},#{amount}
@@ -71,15 +69,15 @@
  <select id="getTotal" resultType="int">
  		
  			select count(*) as total
- 			from JOBS	
+ 			from MANAGER_TEST	
 </select>
 <delete id="delete">
- 			delete from JOBS
+ 			delete from MANAGER_TEST
  			where prodd_id = #{prodd_id}
  			
  		</delete>
  		<update id="update">
- 			update JOBS set
+ 			update MANAGER_TEST set
  			header_main_title=#{header_main_title}
  			,company_title = #{company_title}
  			,middle_content= #{middle_content}

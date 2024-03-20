@@ -322,12 +322,12 @@ img {
 						<div>
 							<h3 class="header_hthree">공고 제목</h3>
 							<input type="text" class="header_main_title"
-								placeholder="구직자가 혹할만한 제목을 정해주세요" name="header_main_title">
+								placeholder="구직자가 혹할만한 제목을 정해주세요" name="title_name">
 						</div>
                         <div>
 							<h3 class="header_hthree">회사명</h3>
 							<input type="text" class="header_main_title"
-								placeholder="회사 이름을 적어주세요" name="company_title">
+								placeholder="회사 이름을 적어주세요" name="title">
 						</div>
 					</header>
 					<div class="big_border">
@@ -553,10 +553,10 @@ img {
         event.preventDefault();
         document.goodDay.action = "resume_job2"; // 폼 액션 변경
        
- document.goodDay.method = "GET";
-        console.log(1);
-        document.goodDay.submit(); // 폼 제출
-    };
+	 document.goodDay.method = "GET";
+	        console.log(1);
+	        document.goodDay.submit(); // 폼 제출
+	    };
 
 
     // vo.prodd_id 로그 출력 부분 제거 또는 주석 처리

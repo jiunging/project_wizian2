@@ -22,33 +22,13 @@
         <th>번호</th>
         <th>요청한 공고 이름</th>
         <th>승인여부</th>
-        <th>공고확인</th>
     </tr>
     </thead>
     <tbody>
     <tr id="tr-yn" th:each="uploadPost : ${uploadPost}" th:data-uploadPost="${uploadPost}">
         <td th:text="${uploadPost.title}">1</td>
-        <td th:text="${uploadPost.title_name}"><a href="/student/comp_popup">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
+        <td><a th:href="@{/job/resume_jobpost2(prodd_id=${uploadPost.prodd_id})}"><span th:text="${uploadPost.title_name}"></span></a></td>
         <td class="td-yn" th:class="${uploadPost.yn == 'Y' ? 'yn-y' : (uploadPost.yn == 'N' ? 'yn-n' : 'yn-t')}" th:text="${uploadPost.yn}">Y/N</td>
-        <td style="width: 100px;"><button>공고 확인</button></td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td><a href="#">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
-        <td>Y/N</td>
-        <td style="width: 100px;"><button>이력서 확인</button></td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td><a href="#">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
-        <td>Y/N</td>
-        <td style="width: 100px;"><button>이력서 확인</button></td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td><a href="#">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
-        <td>Y/N</td>
-        <td style="width: 100px;"><button>이력서 확인</button></td>
     </tr>
     </tbody>
   </table>

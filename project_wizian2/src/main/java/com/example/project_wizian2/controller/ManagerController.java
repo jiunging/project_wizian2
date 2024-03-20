@@ -30,13 +30,13 @@ public class ManagerController {
 	
 	@GetMapping("/mn_myhome")
 	public String mn_myhome(Model model) {
-		
 		ArrayList<ManagerResumeListVO> list = managerService.getList();
 		ArrayList<ManagerResumeListVO> updatePost = managerService.updatePost();
 		ArrayList<ResumeVO> resumeList = managerService.umList();
 		model.addAttribute("list", list);
 		model.addAttribute("updatePost", updatePost);
 		model.addAttribute("resumeList", resumeList);
+		
 		return "user_mn/mn_myhome";
 	}
 	
@@ -69,6 +69,7 @@ public class ManagerController {
     
     @GetMapping("/co_hire_mn")
 	public String home(Model model) {
+
     	ArrayList<ManagerResumeListVO> list = managerService.updatePost();
     	model.addAttribute("list", list);
 		return "/user_mn/co_hire_mn";
@@ -76,13 +77,8 @@ public class ManagerController {
 	
 	
 	
-	@GetMapping("resume_mn")
+	@GetMapping("/resume_mn")
 	public String resume_mn(Model model) {
-		
-//		ArrayList<ManagerResumeListVO> vo = managerService.getList();
-//		System.out.println("컨트롤러 " + vo);
-		
-		
 		ArrayList<ResumeVO> vo2 = managerService.umList();
 		model.addAttribute("vo", vo2);
 		System.out.println("엄컨트롤러" + vo2);

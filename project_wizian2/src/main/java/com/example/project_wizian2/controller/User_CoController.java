@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.project_wizian2.command.ManagerResumeListVO;
 import com.example.project_wizian2.command.ResumeVO;
+import com.example.project_wizian2.job.service.JobService;
 import com.example.project_wizian2.manager.service.ManagerService;
 
 @Controller
@@ -20,6 +21,9 @@ public class User_CoController {
 	
 	@Autowired
 	private ManagerService managerService;
+	
+	@Autowired
+	private JobService jobService;
 	
 	// 인재리스트
 	@GetMapping("/apply_co")
@@ -43,9 +47,17 @@ public class User_CoController {
 		
 		ArrayList<ManagerResumeListVO> updatePost = managerService.updatePost();
 		model.addAttribute("updatePost", updatePost);
+		System.out.println(updatePost);
+		System.out.println("업데이트포스트 작동");
 		ArrayList<ManagerResumeListVO> uploadPost = managerService.uploadPost();
 		model.addAttribute("uploadPost", uploadPost);
+		
+		System.out.println(uploadPost);
+		System.out.println("업로드 작동 : 얘는 잘 된다");
 		ArrayList<ResumeVO> umList = managerService.umList2();
+		
+		System.out.println(umList);
+		System.out.println("엄리스트 작동");
 		model.addAttribute("umList", umList);
 		
 		return "/user_co/co_myhome";
@@ -72,10 +84,11 @@ public class User_CoController {
 	
 	@GetMapping("/hirePost")
 	public String hirePost(Model model) {
-		
+    	System.out.println("공고등록현황페이지");
 		ArrayList<ManagerResumeListVO> uploadPost = managerService.uploadPost();
 		model.addAttribute("uploadPost", uploadPost);
-		
+		System.out.println("공고등록현황페이지 끝");
+		System.out.println(uploadPost);
 		return "/user_co/hirePost";
 	}
 	

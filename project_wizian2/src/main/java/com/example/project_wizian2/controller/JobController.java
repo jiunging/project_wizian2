@@ -31,9 +31,12 @@ public class JobController {
 	
 	@GetMapping("/resume_co")
 	public String getList(Model model,Criteria cri ) {
+		System.out.println("여기 도달함?");
 		ArrayList<JobVO> list=jobService.getList(cri);
 		 int total = jobService.getTotal(cri); 
 		 PageVO pageVO= new PageVO(cri, total);//페이지네이션
+		 
+		 System.out.println("여기 도달함?2");
 		
 		model.addAttribute("list",list);
 		model.addAttribute("pageVO",pageVO);
@@ -44,31 +47,31 @@ public class JobController {
 	
 	
 	
-	@GetMapping("resume_jobpost")
+	@GetMapping("/resume_jobpost")
 	public String good(){
 		return "job/resume_jobpost";
 	}
-	  @GetMapping("/resume_jobpost2")
-	    public String gooddood(int prodd_id, Model model) {
-			JobVO vo = jobService.select(prodd_id);
-		    model.addAttribute("vo", vo);
-	    	return "job/resume_jobpost2";
-	    }
+	
+	@GetMapping("/resume_jobpost2")
+	  public String gooddood(int prodd_id, Model model) {
+		JobVO vo = jobService.select(prodd_id);
+		System.out.println("resume_jobpost : " + vo.toString());
+		model.addAttribute("vo", vo);
+		System.out.println("vo에 값이 담겼나?" + vo);
+	    return "job/resume_jobpost2";
+	}
 	
 	
 
     @GetMapping("/resume_ListJob")
     public String jobPost(int prodd_id, Model model) {
-		JobVO vo = jobService.select(prodd_id);
+    	JobVO vo = jobService.select(prodd_id);
 	    model.addAttribute("vo", vo);
 		return "job/resume_ListJob";
 		
 		
 	}
  
-	
-  
-
 
 	
 	@PostMapping("/registForm")
@@ -80,7 +83,7 @@ public class JobController {
 	        ra.addFlashAttribute("msg", "음, 이건 아니에요.");
 	        
 	    }
-	    return "redirect:/job/resume_co";
+	    return "redirect:/user_co/hirePost";
 	    		
 	}
 	@PostMapping("/delete")
