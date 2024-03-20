@@ -1,5 +1,6 @@
 package com.example.project_wizian2.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,7 @@ public class UserController {
 					String stu_pw = userservice.stu_idcheck(vo).getStu_pw();
 					
 					if(vo.getStu_id().equals(stu_id) &&  vo.getStu_pw().equals(stu_pw)) {
+						
 						System.out.println("YES!!!");
 						session.setAttribute("user_id", stu_id);
 						return "redirect:/user_stu/home";
@@ -91,6 +93,7 @@ public class UserController {
 					
 					if(vo2.getCom_id().equals(com_id) &&  vo2.getCom_pw().equals(com_pw)) {
 						System.out.println("login successful");
+						session.setAttribute("user_id", com_id);
 						return "redirect:/user_co/co_home";
 					}else {
 						return "/user/login";
@@ -109,11 +112,16 @@ public class UserController {
 				if( userservice.man_idcheck(vo3).getMan_id() == null || userservice.man_idcheck(vo3).getMan_pw() == null ) {
 					return "/user/login";
 				} else {
+					
 					String man_id = userservice.man_idcheck(vo3).getMan_id();
 					String man_pw = userservice.man_idcheck(vo3).getMan_pw();
+					String man_email = userservice.man_idcheck(vo3).getMan_email();
 					
 					if(vo3.getMan_id().equals(man_id) && vo3.getMan_pw().equals(man_pw)) {
 						System.out.println("login successful");
+
+						session.setAttribute("user_id", man_id);
+						session.setAttribute("user_email", man_email);
 						
 						return "redirect:/user_mn/mn_home";
 					}else {
@@ -153,5 +161,18 @@ public class UserController {
 		userservice.man_regist(vo);
 		return "redirect:/user/login";
 	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		
+		System.out.println(session);
+		if(session != null) {
+			session.invalidate();
+		}
+		
+		return "redirect:/user";
+	}
+	
 	
 }
