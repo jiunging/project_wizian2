@@ -15,7 +15,7 @@ function my__hire(){
 }
 
 function my__resume(){
-  $("#iframe").attr("src", "/user_co/resume_jobpost");
+  $("#iframe").attr("src", "/job/resume_jobpost");
 };
 
 function my_hirePost(){
