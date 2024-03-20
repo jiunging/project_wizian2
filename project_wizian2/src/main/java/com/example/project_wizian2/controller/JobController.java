@@ -56,6 +56,7 @@ public class JobController {
 	  public String gooddood(int prodd_id, Model model) {
 		JobVO vo = jobService.select(prodd_id);
 		model.addAttribute("vo", vo);
+		System.out.println("vo에 값이 담겼나?" + vo);
 	    return "job/resume_jobpost2";
 	}
 	
@@ -63,6 +64,7 @@ public class JobController {
 
     @GetMapping("/resume_ListJob")
     public String jobPost(int prodd_id, Model model) {
+    	System.out.println("리스트잡");
 		JobVO vo = jobService.select(prodd_id);
 	    model.addAttribute("vo", vo);
 		return "job/resume_ListJob";
