@@ -17,5 +17,6 @@ public class ManagerVO {
 	private String man_department;
 	private Integer man_phone;
 	private String man_email;
+	private String man_auth;
 	
 }
