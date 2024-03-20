@@ -40,7 +40,6 @@ public class ManagerServiceImpl implements ManagerService{
 	@Override
 	public void updatePostStatus(String title, String yn) {
 		
-		System.out.println("서비스 실행");
 		managerMapper.updatePostStatus(title, yn);
 	}
 	
@@ -77,6 +76,27 @@ public class ManagerServiceImpl implements ManagerService{
 	public ArrayList<ResumeVO> umList2() {
 		
 		return managerMapper.umList2();
+	}
+
+	// 서류 합격자 명단 ( y )
+	@Override
+	public ArrayList<ResumeVO> umList3() {
+		
+		return managerMapper.umList3();
+	}
+
+	// 1차 면접 합격 및 최종 면접 진출자 명단
+	@Override
+	public ArrayList<ResumeVO> umList4() {
+		
+		return managerMapper.umList4();
+	}
+	
+	// 최종 합격자 명단
+	@Override
+	public ArrayList<ResumeVO> umList5() {
+		
+		return managerMapper.umList5();
 	}
 	
 	

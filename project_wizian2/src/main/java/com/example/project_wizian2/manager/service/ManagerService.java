@@ -28,5 +28,11 @@ public interface ManagerService {
 	public void updateResume(String stu_name, String stu_yn);
 	
 	public ArrayList<ResumeVO> umList2();
-
+	
+	// 서류합격자 명단
+	public ArrayList<ResumeVO> umList3();
+	// 1차 면접 합격 및 최종 면접 진출자 명단
+	public ArrayList<ResumeVO> umList4();
+	// 최종 합격자 명단
+	public ArrayList<ResumeVO> umList5();
 }

@@ -31,4 +31,13 @@ public interface ManagerMapper {
 	public ArrayList<ManagerResumeListVO> uploadPost();
 	// 학생 이력서 업데이트
 	public void updateResume(@Param("stu_name") String stu_name,@Param("stu_yn") String stu_yn);
+	
+	// 서류 합격자
+	public ArrayList<ResumeVO> umList3();
+	
+	// 1차 면접 합격 및 최종면접자 명단
+	public ArrayList<ResumeVO> umList4();
+	
+	// 최종 합격자 명단
+	public ArrayList<ResumeVO> umList5();
 }
