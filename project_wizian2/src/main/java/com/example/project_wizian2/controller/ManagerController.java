@@ -77,10 +77,8 @@ public class ManagerController {
 	
 	
 	
-	@GetMapping("resume_mn")
+	@GetMapping("/resume_mn")
 	public String resume_mn(Model model) {
-				
-		
 		ArrayList<ResumeVO> vo2 = managerService.umList();
 		model.addAttribute("vo", vo2);
 		System.out.println("엄컨트롤러" + vo2);

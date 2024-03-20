@@ -57,6 +57,7 @@ public class JobController {
 		JobVO vo = jobService.select(prodd_id);
 		System.out.println("resume_jobpost : " + vo.toString());
 		model.addAttribute("vo", vo);
+		System.out.println("vo에 값이 담겼나?" + vo);
 	    return "job/resume_jobpost2";
 	}
 	
