@@ -12,6 +12,8 @@ table {
   margin-top: 20px;
 }
 
+.pass__button{margin-top:30px;}
+
 #myForm{display:flex;}
 
 .notice__below__apply{width:100px;}

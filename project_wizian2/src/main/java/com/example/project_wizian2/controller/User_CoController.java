@@ -42,29 +42,25 @@ public class User_CoController {
 		return "/user_co/co_home";
 	}
 	
+	
 	@GetMapping("/co_myhome")
 	public String co_myhome(Model model) {
 		
 		ArrayList<ManagerResumeListVO> updatePost = managerService.updatePost();
 		model.addAttribute("updatePost", updatePost);
-		System.out.println(updatePost);
-		System.out.println("업데이트포스트 작동");
+
 		ArrayList<ManagerResumeListVO> uploadPost = managerService.uploadPost();
 		model.addAttribute("uploadPost", uploadPost);
 		
-		System.out.println(uploadPost);
-		System.out.println("업로드 작동 : 얘는 잘 된다");
+
 		ArrayList<ResumeVO> umList = managerService.umList2();
-		
-		System.out.println(umList);
-		System.out.println("엄리스트 작동");
 		model.addAttribute("umList", umList);
 		
 		return "/user_co/co_myhome";
 	}
 	
 	
-	@PostMapping("/approve/{title}")
+	@GetMapping("/approve/{title}")
     public String approvePost(@RequestParam("stu_name") String stu_name) {
 		System.out.println("이력서 승인 업데이트 컨트롤러 시작 : " + stu_name);
 		managerService.updateResume(stu_name, "Y");
@@ -72,7 +68,7 @@ public class User_CoController {
         return "redirect:/user_co/co_myhome"; // 승인 후 게시글 목록 페이지로 리다이렉트
     }
 
-    @PostMapping("/reject/{title}")
+	@GetMapping("/reject/{title}")
     public String rejectPost(@RequestParam("stu_name") String stu_name) {
     	System.out.println("거절 업데이트 컨트롤러 시작 : " + stu_name);
     	managerService.updateResume(stu_name, "N");
@@ -102,26 +98,94 @@ public class User_CoController {
 		return "/user_co/hire_co";
 	}
 	
-	@PostMapping("/approve_second/{title}")
+	@GetMapping("/approve_second/{title}")
     public String approvePostSecond(@RequestParam("stu_name") String stu_name) {
 		System.out.println("이력서 승인 업데이트 컨트롤러 시작 : " + stu_name);
-		managerService.updateResume(stu_name, "YY");
+		managerService.updateResume(stu_name, "Y");
 		
         return "redirect:/user_co/hire_co"; // 승인 후 게시글 목록 페이지로 리다이렉트
     }
 
-    @PostMapping("/reject_second/{title}")
+	@GetMapping("/reject_second/{title}")
     public String rejectPostSecond(@RequestParam("stu_name") String stu_name) {
     	System.out.println("거절 업데이트 컨트롤러 시작 : " + stu_name);
-    	managerService.updateResume(stu_name, "NN");
+    	managerService.updateResume(stu_name, "N");
     	
         return "redirect:/user_co/hire_co"; // 거절 후 게시글 목록 페이지로 리다이렉트
     }
 	
-    @PostMapping("/hire_co_document")
-	public String hire_co_document() {
+    @GetMapping("/hire_co_document")
+	public String hire_co_document(Model model) {
+    	
+    	ArrayList<ResumeVO> vo = managerService.umList3();
+    	model.addAttribute("vo", vo);
 		return "user_co/hire_co_document";
 	}
+    
+    @GetMapping("/approve_third/{title}")
+    public String approvePostThird(@RequestParam("stu_name") String stu_name) {
+		System.out.println("이력서 승인 업데이트 컨트롤러 시작 : " + stu_name);
+		managerService.updateResume(stu_name, "YY");
+		
+        return "redirect:/user_co/hire_co_document"; // 승인 후 게시글 목록 페이지로 리다이렉트
+    }
+
+    @GetMapping("/reject_third/{title}")
+    public String rejectPostThird(@RequestParam("stu_name") String stu_name) {
+    	System.out.println("거절 업데이트 컨트롤러 시작 : " + stu_name);
+    	managerService.updateResume(stu_name, "NN");
+    	
+        return "redirect:/user_co/hire_co_document"; // 거절 후 게시글 목록 페이지로 리다이렉트
+    }
+    
+    
+    @GetMapping("/hire_co_interview")
+    public String hire_co_interview(Model model) {
+    	ArrayList<ResumeVO> vo = managerService.umList4();
+    	model.addAttribute("vo", vo);
+    	return "user_co/hire_co_interview";
+    }
+    
+    @GetMapping("/approve_fourth/{title}")
+    public String approvePostFourth(@RequestParam("stu_name") String stu_name) {
+		System.out.println("이력서 승인 업데이트 컨트롤러 시작 : " + stu_name);
+		managerService.updateResume(stu_name, "YYY");
+		
+        return "redirect:/user_co/hire_co_interview"; // 승인 후 게시글 목록 페이지로 리다이렉트
+    }
+
+    @GetMapping("/reject_fourth/{title}")
+    public String rejectPostFourth(@RequestParam("stu_name") String stu_name) {
+    	System.out.println("거절 업데이트 컨트롤러 시작 : " + stu_name);
+    	managerService.updateResume(stu_name, "NNN");
+    	
+        return "redirect:/user_co/hire_co_interview"; // 거절 후 게시글 목록 페이지로 리다이렉트
+    }
+    
+    @GetMapping("/hire_co_pass")
+    public String hire_co_pass(Model model) {
+    	ArrayList<ResumeVO> vo = managerService.umList5();
+    	model.addAttribute("vo", vo);
+    	return "user_co/hire_co_pass";
+    }
+    
+    @GetMapping("/approve_fifth/{title}")
+    public String approvePostFifth(@RequestParam("stu_name") String stu_name) {
+		System.out.println("이력서 승인 업데이트 컨트롤러 시작 : " + stu_name);
+		managerService.updateResume(stu_name, "YYYY");
+		
+        return "redirect:/user_co/hire_co_pass"; // 승인 후 게시글 목록 페이지로 리다이렉트
+    }
+
+    @GetMapping("/reject_fifth/{title}")
+    public String rejectPostFifth(@RequestParam("stu_name") String stu_name) {
+    	System.out.println("거절 업데이트 컨트롤러 시작 : " + stu_name);
+    	managerService.updateResume(stu_name, "NNNN");
+    	
+        return "redirect:/user_co/hire_co_pass"; // 거절 후 게시글 목록 페이지로 리다이렉트
+    }
+    
+    
     
 	
 	@GetMapping("/purpose_co")
