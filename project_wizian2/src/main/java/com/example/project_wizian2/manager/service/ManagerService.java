@@ -19,5 +19,14 @@ public interface ManagerService {
 	public ArrayList<ManagerResumeListVO> updatePost();
 	// 3. 거절 시 삭제
 	public void deletePost(String title);
+	
+	
+	// 회사 메인 페이지와 공고등록 현황페이지에서 현재 등록 현황 확인
+	public ArrayList<ManagerResumeListVO> uploadPost();
+	
+	// 학생 이력서 업데이트
+	public void updateResume(String stu_name, String stu_yn);
+	
+	public ArrayList<ResumeVO> umList2();
 
 }

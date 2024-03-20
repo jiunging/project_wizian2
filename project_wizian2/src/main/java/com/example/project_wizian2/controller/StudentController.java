@@ -36,7 +36,11 @@ public class StudentController {
 	}
 	
 	@GetMapping("/myhome_stu")
-	public String myhome_stu() {
+	public String myhome_stu(Model model) {
+		
+		ArrayList<ManagerResumeListVO> updatePost = managerService.updatePost();
+		model.addAttribute("updatePost", updatePost);
+		
 		return "/user_stu/myhome_stu";
 	}
 	

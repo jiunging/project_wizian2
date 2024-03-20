@@ -33,6 +33,7 @@ public class ResumeVO {
 	private String stu_emp_type;
 	private String stu_interest;
 	private String stu_wage;
+	private String stu_yn;
 
 
 }
