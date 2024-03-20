@@ -25,7 +25,8 @@
   								 stu_awardcompname,
   								 stu_emp_type,
   								 stu_interest,
-  								 stu_wage)
+  								 stu_wage,
+  								 stu_id)
   		values ( #{title},
   				 #{stu_name},
   				 #{stu_address},
@@ -46,8 +47,8 @@
   				 #{stu_awardcompname},
   				 #{stu_emp_type},
   				 #{stu_interest},
-  				 #{stu_wage}
-  				 
+  				 #{stu_wage},
+  				 #{stu_id}
   		)
   		
   	</insert>

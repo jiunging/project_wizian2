@@ -26,7 +26,7 @@
     <tbody>
     <tr th:each="list : ${list}">
         <td th:text="${list.title}">1</td>
-        <td><a href="/student/comp_popup"><span th:text="${list.title_name}"></span></a></td>
+        <td><a th:href="@{/job/resume_jobpost2(prodd_id=${list.prodd_id})}"><span th:text="${list.title_name}"></span></a></td>
         <td>2024-03-15</td>
         <td style="display:flex; width: 100px">
         <form th:action="@{/user_mn/approve/{title}(title=${list.title})}" method="post">

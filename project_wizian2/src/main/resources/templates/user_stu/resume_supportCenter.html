@@ -12,6 +12,8 @@
 </head>
 <body>
 
+
+
   <div class="whole">
     <header class="header1">
 
@@ -25,6 +27,7 @@
             <input type="file" id="main_pic" class="upload_pic" style="display: none;">
           </label>
           <li class="header_resume_name"></li>
+          
 
 
         </ul>
@@ -370,6 +373,12 @@
                     <li>만원</li>
                   </ul>
                 </div>
+                
+            <!-- (세션 아이디로 넣을거임) -->
+			<input type=input name="stu_id" th:value="${session.user_id}">
+			<script>
+				
+			</script>
 
               </div>
 
