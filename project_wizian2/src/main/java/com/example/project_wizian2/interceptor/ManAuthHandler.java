@@ -17,15 +17,23 @@ public class ManAuthHandler implements HandlerInterceptor{
 		
 		HttpSession session = request.getSession();
 		String auth = (String) session.getAttribute("auth");
-		System.out.println(auth);
-	
-		if(auth.equals("man")) {
-			return true;
-		}else {
-			response.sendRedirect(request.getContextPath()+ "/user/login");
-			return false;
-		}
+		System.out.println(3333);
+		String uri = request.getRequestURI();
 		
+		System.out.println(uri.startsWith("/user_mn/"));
+		
+		if (auth.equals("man")) {
+            if (uri.startsWith("/user_mn/")) { 
+                return true;
+            } else {
+                response.sendRedirect(request.getContextPath() + "user_mn/mn_home"); 
+                return false;
+           }
+        } else {
+            response.sendRedirect(request.getContextPath() + "/user/login");
+            return false;
+        }
+        
 	}
 
 	@Override

@@ -122,7 +122,7 @@ public class UserController {
 					String man_email = userservice.man_idcheck(vo3).getMan_email();
 					
 					if(vo3.getMan_id().equals(man_id) && vo3.getMan_pw().equals(man_pw)) {
-						System.out.println("login successful");
+						System.out.println("login successful 123");
 
 						session.setAttribute("user_id", man_id);
 						session.setAttribute("user_email", man_email);

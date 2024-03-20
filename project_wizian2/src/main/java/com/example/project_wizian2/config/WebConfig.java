@@ -24,7 +24,6 @@ public class WebConfig implements WebMvcConfigurer{
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		
 			registry.addInterceptor(userAuthHandler)
 					.excludePathPatterns("/user/**")
 					.excludePathPatterns("/")
@@ -32,9 +31,21 @@ public class WebConfig implements WebMvcConfigurer{
 					.addPathPatterns("/user_mn/**")
 					.addPathPatterns("/user_co/**");
 			
+			registry.addInterceptor(stuAuthHandler) 
+            	.excludePathPatterns("/user_stu/**")
+            	.addPathPatterns("/user_mn/**")
+            	.addPathPatterns("/user_co/**");
 			
-					
-					
+			registry.addInterceptor(comAuthHandler)
+				.excludePathPatterns("/user_co/**")
+				.addPathPatterns("/user_mn/**")
+				.addPathPatterns("/user_stu/**");
+			
+			registry.addInterceptor(manAuthHandler)
+				.excludePathPatterns("/user_mn/**")
+				.addPathPatterns("/user_co/**")
+				.addPathPatterns("/user_stu/**");
+			
 		WebMvcConfigurer.super.addInterceptors(registry);
 	}
 	

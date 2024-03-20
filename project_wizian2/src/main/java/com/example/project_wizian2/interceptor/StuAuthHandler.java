@@ -17,17 +17,22 @@ public class StuAuthHandler implements HandlerInterceptor{
 
 		HttpSession session = request.getSession();
 		String auth = (String) session.getAttribute("auth");
-		System.out.println(auth);
-		
+		//System.out.println(auth + "0000");
 		String uri = request.getRequestURI();
+		System.out.println(1111);
+		System.out.println(uri.startsWith("/user_stu/") + "ㅁㅇㄹㄴㅇㄹ");
 		
-		if(auth != null){
-			return true;
-		}else {
-			response.sendRedirect(request.getContextPath()+ "/user/login");
-			return false;
-		}
-		
+        if (auth.equals("stu")) {
+            if (uri.startsWith("/user_stu/")) { 
+                return true;
+            } else {
+                response.sendRedirect(request.getContextPath() + "/user_stu/home"); 
+                return false;
+           }
+        } else {
+            response.sendRedirect(request.getContextPath() + "/user/login");
+            return false;
+        }
 		
 	}
 

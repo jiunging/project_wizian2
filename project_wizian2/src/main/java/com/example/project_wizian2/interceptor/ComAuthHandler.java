@@ -17,16 +17,25 @@ public class ComAuthHandler implements HandlerInterceptor{
 		
 		HttpSession session = request.getSession();
 		String auth = (String) session.getAttribute("auth");
-		System.out.println(auth);
+		System.out.println(auth +"111");
 		
 		//String uri = request.getRequestURI();
 		
-		if(auth.equals("com")){
-			return true;
-		}else {
-			response.sendRedirect(request.getContextPath()+ "/user/login");
-			return false;
-		}
+		String uri = request.getRequestURI();
+		
+		System.out.println(uri.startsWith("/user_com/") + "comauth");
+		
+		if (auth.equals("com")) {
+            if (uri.startsWith("/user_co/")) { 
+                return true;
+            } else {
+                response.sendRedirect(request.getContextPath() + "/user_co/co_home"); 
+                return false;
+           }
+        } else {
+            response.sendRedirect(request.getContextPath() + "/user/login");
+            return false;
+        }
 		
 
 	}
