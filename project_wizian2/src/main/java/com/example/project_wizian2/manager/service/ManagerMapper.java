@@ -15,6 +15,9 @@ public interface ManagerMapper {
 	
 	public ArrayList<ResumeVO> umList();
 	
+	// db에 yn값이 null 인 경우
+	public ArrayList<ResumeVO> umList2();
+	
 	public ArrayList<ResumeVO> resumeDetail(int resume_num);
 
 	// 1. 채용 공고 등록 승인 여부
@@ -24,4 +27,8 @@ public interface ManagerMapper {
 	// 3. 거절 시 삭제
 	public void deletePost(String title);
 	
+	
+	public ArrayList<ManagerResumeListVO> uploadPost();
+	// 학생 이력서 업데이트
+	public void updateResume(@Param("stu_name") String stu_name,@Param("stu_yn") String stu_yn);
 }

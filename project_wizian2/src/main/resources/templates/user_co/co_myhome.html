@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/580a20ac80.js" crossorigin="anonymous"></script>
+  <script src="/js/jquery-3.7.1.min.js"></script>
   <link rel="stylesheet" href="/css/user_co/myhome_co.css">
+   <script src="/js/home_co.js" defer></script>
   <title>Document</title>
 </head>
 <body>
@@ -16,7 +18,7 @@
     <div class="section__right__header">
     <div class="right__header__img"><img src="/img/default.png" alt="기본이미지"></div>
     <div class="right__header__info">
-      <p>session.co_name 님 <span id="info1">session.기업명</span></p>
+      <p th:text="${session.user_id}  + ' 님'"> <span id="info1">session.기업명</span></p>
       <span id="info2">session.회사타입</span>
       <span id="info3">session.사업자등록번호</span>
     </div>
@@ -25,10 +27,10 @@
   <div class="section__right__body">
 
     <div class="section__right__alarm">
-      <a href="" class="right__alarm__list list1">전체 알람 <i class="fa-regular fa-lightbulb"></i></a>
-      <a href="" class="right__alarm__list list2">공고 등록 내역 <i class="fa-regular fa-lightbulb"></i></a>
-      <a href="" class="right__alarm__list list3">지원자 관리 <i class="fa-regular fa-lightbulb"></i></a>
-      <a href="" class="right__alarm__list list4">진행중인 공고 <i class="fa-regular fa-lightbulb"></i></a>
+      <a href="" class="right__alarm__list list1">전체 알람 <span>[[${uploadPost.size() + updatePost.size()}]]</span><i class="fa-regular fa-lightbulb"></i></a>
+      <a href="" class="right__alarm__list list2">전체 공고 등록 <span>[[${uploadPost.size()}]]</span><i class="fa-regular fa-lightbulb"></i></a>
+      <a href="" class="right__alarm__list list3">지원자 관리 <span>[[${umList.size()}]]</span><i class="fa-regular fa-lightbulb"></i></a>
+      <a href="" class="right__alarm__list list4">진행중인 공고 <span>[[${updatePost.size()}]]</span><i class="fa-regular fa-lightbulb"></i></a>
     </div>
 
     <div class="section__right__notice">
@@ -41,42 +43,17 @@
             <table>
                 <thead>
                     <tr>
-                        <th>번호</th>
-                        <th>채용공고명</th>
-                        <th>기업명</th>
+                        <th class="container__th__one">공고제목</th>
+                        <th class="container__th__two">공고명</th>
+                        <th class="container__th__three">승인여부</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>웹 개발자 채용</td>
-                        <td>ABC 주식회사</td>
+                    <tr th:each="updatePost : ${updatePost}" th:data-uploadPost="${updatePost}">
+                        <td th:text="${updatePost.title}">1</td>
+                        <td th:text="${updatePost.title_name}">웹 개발자 채용</td>
+                        <td id="td-yn" th:class="${updatePost.yn == 'Y' ? 'yn-y' : (updatePost.yn == 'N' ? 'yn-n' : 'yn-t')}" th:text="${updatePost.yn}">ABC 주식회사</td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>데이터 분석가 채용</td>
-                        <td>XYZ 기업</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>웹 개발자 채용</td>
-                      <td>ABC 주식회사</td>
-                  </tr>
-                  <tr>
-                      <td>4</td>
-                      <td>데이터 분석가 채용</td>
-                      <td>XYZ 기업</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>웹 개발자 채용</td>
-                    <td>ABC 주식회사</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>데이터 분석가 채용</td>
-                    <td>XYZ 기업</td>
-                </tr>
                 </tbody>
             </table>
           </div>
@@ -91,39 +68,28 @@
                         <th>번호</th>
                         <th>이력서 제목</th>
                         <th>지원자명</th>
+                        <th id="td_btn">합격유무</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>웹 개발자 채용</td>
-                        <td>ABC 주식회사</td>
+                    <tr th:each="umList : ${umList}">
+                        <td th:text="${umList.resume_num}">1</td>
+                        <td th:text="${umList.title}">이력서 제목</td>
+                        <td th:text="${umList.stu_name}">지원자 이름</td>
+                        <td style="display:flex;">
+	                        <form th:action="@{/user_co/approve/{stu_name}(stu_name=${umList.stu_name})}" method="post">
+		                        <input type="hidden" name="stu_name" th:value="${umList.stu_name}"/>
+		                        <input type="hidden" name="stu_yn" th:value="${umList.stu_yn}"/>
+		                        <button type="submit" style="margin-right: 10px;">승인</button>
+	                    	</form>
+	                        
+	                        <form th:action="@{/user_co/reject/{stu_name}(stu_name=${umList.stu_name})}" method="post">
+		                        <input type="hidden" name="stu_name" th:value="${umList.stu_name}"/>
+		                        <input type="hidden" name="stu_yn" th:value="${umList.stu_yn}"/>
+		                        <button type="submit">거절</button>
+	                    	</form>
+                        </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>데이터 분석가 채용</td>
-                        <td>XYZ 기업</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>웹 개발자 채용</td>
-                      <td>ABC 주식회사</td>
-                  </tr>
-                  <tr>
-                      <td>4</td>
-                      <td>데이터 분석가 채용</td>
-                      <td>XYZ 기업</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>웹 개발자 채용</td>
-                    <td>ABC 주식회사</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>데이터 분석가 채용</td>
-                    <td>XYZ 기업</td>
-                </tr>
                 </tbody>
             </table>
           </div>
@@ -137,42 +103,17 @@
           <table>
               <thead>
                   <tr>
-                      <th>번호</th>
-                      <th>채용공고명</th>
-                      <th>기업명</th>
+                      <th>공고제목</th>
+                      <th>공고명</th>
+                      <th>승인여부</th>
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                      <td>1</td>
-                      <td>웹 개발자 채용</td>
-                      <td>ABC 주식회사</td>
+                  <tr th:each="uploadPost : ${uploadPost}">
+                      <td th:text="${uploadPost.title}">1</td>
+                      <td th:text="${uploadPost.title_name}">>웹 개발자 채용</td>
+                      <td id="td-yn" th:class="${uploadPost.yn == 'Y' ? 'yn-y' : (uploadPost.yn == 'N' ? 'yn-n' : 'yn-t')}" th:text="${uploadPost.yn}" >ABC 주식회사</td>
                   </tr>
-                  <tr>
-                      <td>2</td>
-                      <td>데이터 분석가 채용</td>
-                      <td>XYZ 기업</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>웹 개발자 채용</td>
-                    <td>ABC 주식회사</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>데이터 분석가 채용</td>
-                    <td>XYZ 기업</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>웹 개발자 채용</td>
-                  <td>ABC 주식회사</td>
-              </tr>
-              <tr>
-                  <td>6</td>
-                  <td>데이터 분석가 채용</td>
-                  <td>XYZ 기업</td>
-              </tr>
               </tbody>
           </table>
         </div>
