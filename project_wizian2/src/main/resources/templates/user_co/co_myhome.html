@@ -18,7 +18,7 @@
     <div class="section__right__header">
     <div class="right__header__img"><img src="/img/default.png" alt="기본이미지"></div>
     <div class="right__header__info">
-      <p>session.co_name 님 <span id="info1">session.기업명</span></p>
+      <p th:text="${session.user_id}  + ' 님'"> <span id="info1">session.기업명</span></p>
       <span id="info2">session.회사타입</span>
       <span id="info3">session.사업자등록번호</span>
     </div>

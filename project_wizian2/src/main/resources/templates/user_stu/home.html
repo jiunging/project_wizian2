@@ -11,16 +11,17 @@
   <link rel="stylesheet" href="/css/user_stu/home.css">
   <script src="/js/home_stu.js"></script>
   
-  <title>Document</title>
+<title>Document</title>
 </head>
 <body>
+
   <header>
     <div class="header__wrapper">
       <div class="header__wrapper__container">
         <img src="/img/logo.png" alt="로고">
         <div class="header__wrapper__my">
           <i class="fa-regular fa-bell"></i>
-          <a href="">session__id 님</a>
+          <a href="" th:text="${session.user_id}"></a>
         </div>
       </div>
     </div>
@@ -37,7 +38,7 @@
           <div class="section__left__menu" id="my__apply" onclick="my__applyList()"><span>지원 내역</span></div>
           <div class="section__left__menu" onclick="my__receiveList()"><span>받은 제안</span></div>
           <div class="section__left__menu"><span>회원 정보 수정</span></div>
-          <div class="section__left__menu logout"><span>로그아웃</span></div>
+          <a class="section__left__menu logout"><span>로그아웃</span></a>
         </div>
         <div class="section__container__right">
 
