@@ -69,6 +69,7 @@ public class ManagerController {
     
     @GetMapping("/co_hire_mn")
 	public String home(Model model) {
+
     	ArrayList<ManagerResumeListVO> list = managerService.updatePost();
     	model.addAttribute("list", list);
 		return "/user_mn/co_hire_mn";
