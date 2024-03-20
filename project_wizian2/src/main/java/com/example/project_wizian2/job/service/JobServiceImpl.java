@@ -23,6 +23,7 @@ public class JobServiceImpl implements JobService{
 		
 		return jobMapper.select(prodd_id);
 	}
+
 	@Override
 	public ArrayList<JobVO> getList(Criteria cri) {
 		// TODO Auto-generated method stub
@@ -43,6 +44,8 @@ public class JobServiceImpl implements JobService{
 		// TODO Auto-generated method stub
 		jobMapper.delete(prodd_id);
 	}
+
+	
 	
 	}
 	

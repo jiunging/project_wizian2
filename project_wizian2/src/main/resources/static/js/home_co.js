@@ -18,9 +18,11 @@ function my__resume(){
   $("#iframe").attr("src", "/job/resume_jobpost");
 };
 
+
 function my_hirePost(){
 	$("#iframe").attr("src", "/user_co/hirePost");
 };
+
 
 
 
