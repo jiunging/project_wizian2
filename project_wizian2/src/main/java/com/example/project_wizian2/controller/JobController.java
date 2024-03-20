@@ -55,6 +55,7 @@ public class JobController {
 	@GetMapping("/resume_jobpost2")
 	  public String gooddood(int prodd_id, Model model) {
 		JobVO vo = jobService.select(prodd_id);
+		System.out.println("resume_jobpost : " + vo.toString());
 		model.addAttribute("vo", vo);
 	    return "job/resume_jobpost2";
 	}
@@ -63,7 +64,7 @@ public class JobController {
 
     @GetMapping("/resume_ListJob")
     public String jobPost(int prodd_id, Model model) {
-		JobVO vo = jobService.select(prodd_id);
+    	JobVO vo = jobService.select(prodd_id);
 	    model.addAttribute("vo", vo);
 		return "job/resume_ListJob";
 		

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.project_wizian2.command.ManagerResumeListVO;
 import com.example.project_wizian2.command.ResumeVO;
+import com.example.project_wizian2.job.service.JobService;
 import com.example.project_wizian2.manager.service.ManagerService;
 
 @Controller
@@ -20,6 +21,9 @@ public class User_CoController {
 	
 	@Autowired
 	private ManagerService managerService;
+	
+	@Autowired
+	private JobService jobService;
 	
 	// 인재리스트
 	@GetMapping("/apply_co")
