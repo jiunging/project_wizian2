@@ -2,6 +2,10 @@ package com.example.project_wizian2.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -32,7 +36,11 @@ public class StudentController {
 	}
 
 	@GetMapping("/home")
-	public String home() {
+	public String home(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String auth = (String) session.getAttribute("user_id");
+		System.out.println(auth);
+		System.out.println("세션, 홈까지 오다");
 		return "/user_stu/home";
 	}
 	
@@ -75,7 +83,7 @@ public class StudentController {
 		
 		resumeService.registResume(vo);
 		
-		return "/user_stu/myhome_stu";
+		return "user_stu/myhome_stu";
 	}
 	
 
