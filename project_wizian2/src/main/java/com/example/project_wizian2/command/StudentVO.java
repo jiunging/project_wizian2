@@ -16,5 +16,6 @@ public class StudentVO {
 	private String stu_name;
 	private Integer stu_phone;
 	private String stu_email;
+	private String stu_auth;
 	
 }

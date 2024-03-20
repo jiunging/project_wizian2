@@ -18,6 +18,6 @@ public class CompanyVO {
 	private String com_phone;
 	private String com_email;
 	private String com_type;
-	
+	private String com_auth;
 	
 }
