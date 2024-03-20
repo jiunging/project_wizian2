@@ -12,6 +12,10 @@
   		select * from test_resume
   	</select> 
   	
+  	<select id="umList2" resultType="ResumeVO">
+  		select* from test_resume where stu_yn is null
+  	</select> 
+  	
   	<update id="updatePostStatus">
   		update manager_test set yn = #{yn} where title = #{title}
   	</update>
@@ -27,6 +31,14 @@
   	<delete id="deletePost">
   		delete from manager_test where title=#{title}
   	</delete>
+  	
+  	<select id="uploadPost" resultType="ManagerResumeListVO">
+  		select * from manager_test
+  	</select>
+  	
+  	<update id="updateResume" parameterType="map">
+  		update test_resume set stu_yn = #{stu_yn} where stu_name = #{stu_name}
+  	</update>
   	
   	
   </mapper>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,12 @@
 </head>
 <body>
   <div class="notice__header"><span>지원자 내역</span></div>
+  
+  <div class="pass__button">
+  	서류전형 <input type="checkbox" >
+  	면접전형 <input type="checkbox" >
+  	최종합격 <input type="checkbox" >
+  </div>
 
   <table class="apply_table">
     <colgroup>
@@ -18,36 +24,30 @@
     <thead>
     <tr>
         <th>번호</th>
-        <th>공고명 / 이력서 제목</th>
+        <th>이력서 제목</th>
         <th>이름</th>
-        <th>이력서보기</th>
+        <th class="notice__below__apply">합격 유무</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>1</td>
-        <td><a href="/student/comp_popup">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
-        <td>2024-03-15</td>
-        <td style="width: 100px;"><button>이력서 확인</button></td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td><a href="#">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
-        <td>2024-03-15</td>
-        <td><button>이력서 확인</button></td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td><a href="#">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
-        <td>2024-03-15</td>
-        <td><button>이력서 확인</button></td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td><a href="#">[삼성엔지니어링] 2024년 상반기 삼성엔지니어링 3급 신입사원 채용 · 대학생 인턴 모집</a></td>
-        <td>2024-03-15</td>
-        <td><button>이력서 확인</button></td>
-    </tr>
+	    <tr th:each="umList : ${umList}">
+	        <td th:text="${umList.resume_num}">1</td>
+	        <td th:text="${umList.title}"><a href="/student/comp_popup">이력서 제목</a></td>
+	        <td th:text="${umList.stu_name}">지원자 이름</td>
+			<td style="display:flex;">
+               <form th:action="@{/user_co/approve_second/{stu_name}(stu_name=${umList.stu_name})}" method="post">
+	                <input type="hidden" name="stu_name" th:value="${umList.stu_name}"/>
+	                <input type="hidden" name="stu_yn" th:value="${umList.stu_yn}"/>
+	                <button type="submit" style="margin-right: 10px;">승인</button>
+           		</form>
+               
+               <form th:action="@{/user_co/reject_second/{stu_name}(stu_name=${umList.stu_name})}" method="post">
+	                <input type="hidden" name="stu_name" th:value="${umList.stu_name}"/>
+	                <input type="hidden" name="stu_yn" th:value="${umList.stu_yn}"/>
+	                <button type="submit">거절</button>
+           	   </form>
+	       </td>
+	    </tr>
     </tbody>
   </table>
 </body>

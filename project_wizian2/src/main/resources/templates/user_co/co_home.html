@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/580a20ac80.js" crossorigin="anonymous"></script>
-  <script src="/js/jquery-3.7.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="/css/user_stu/home.css">
   <script src="/js/home_co.js"></script>
   <title>Document</title>
@@ -32,11 +32,15 @@
 
         <div class="section__container__left">
           <div class="section__left__menu" id="my__home" onclick="my__home()"><span>My Co</span></div>
-          <div class="section__left__menu" id="my__notice" onclick="my__apply()"><span>인재리스트</span></div>
           <div class="section__left__menu" id="my__resume" onclick="my__resume()"><span>채용공고작성</span></div>
-          <div class="section__left__menu" id="my__apply" onclick="my__purpose()"><span>제안내역</span></div>
+          <!-- 여기 공고 등록 현황 페이지 추가 -->
+          <div class="section__left__menu" onclick="my_hirePost()"><span>공고등록현황</span></div>
           <div class="section__left__menu" onclick="my__hire()"><span>지원자내역</span></div>
+          <div class="section__left__menu" id="my__apply" onclick="my__purpose()"><span>제안내역</span></div>
+          <div class="section__left__menu" id="my__notice" onclick="my__apply()"><span>인재리스트</span></div>
           <div class="section__left__menu"><span>회원 정보 수정</span></div>
+          <!-- 로그아웃 기능 추가 -->
+          <div class="section__left__menu logout"><span>로그 아웃</span></div>
         </div>
         <div class="section__container__right">
 

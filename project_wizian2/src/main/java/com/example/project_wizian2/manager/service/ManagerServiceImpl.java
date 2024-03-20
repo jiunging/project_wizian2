@@ -57,6 +57,27 @@ public class ManagerServiceImpl implements ManagerService{
 		
 		managerMapper.deletePost(title);
 	}
+
+	// 회사 메인 페이지와 공고등록 현황페이지에서 현재 등록 현황 확인
+	@Override
+	public ArrayList<ManagerResumeListVO> uploadPost() {
+		
+		return managerMapper.uploadPost();
+	}
+
+	// 학생 이력서 업데이트
+	@Override
+	public void updateResume(String stu_name, String stu_yn) {
+
+		managerMapper.updateResume(stu_name, stu_yn);
+		
+	}
+
+	@Override
+	public ArrayList<ResumeVO> umList2() {
+		
+		return managerMapper.umList2();
+	}
 	
 	
 
