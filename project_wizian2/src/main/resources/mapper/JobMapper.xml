@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.project_wizian2.job.service.JobMapper">
-    <insert id="regist" parameterType="map">
+<insert id="regist" parameterType="map">
         INSERT INTO MANAGER_TEST (
       
 			title_name,
@@ -24,7 +24,9 @@
             middle_three_content_select,
             phone,
             document,
-            checkone
+            checkone,
+            user_id,
+            stu_id
             
         )
         VALUES (
@@ -48,8 +50,9 @@
             #{middle_three_content_select},
             #{phone},
             #{document},
-            #{checkone}
-           
+            #{checkone},
+            #{user_id},
+           	#{stu_id}
         )
         
     </insert>
@@ -75,30 +78,40 @@
  			delete from MANAGER_TEST
  			where prodd_id = #{prodd_id}
  			
- 		</delete>
- 		<update id="update">
- 			update MANAGER_TEST set
- 			header_main_title=#{header_main_title}
- 			,company_title = #{company_title}
- 			,middle_content= #{middle_content}
- 			,middle_content_category = #{middle_content_category}
- 			,middle_middle_people = #{middle_middle_people}
- 			, middle_middle_writer = #{middle_middle_writer}
- 			,middle_two_checkbox_two = #{middle_two_checkbox_two}
- 			,middle_two_select= #{middle_two_select}
- 			,middle_two_content_content=#{middle_two_content_content}	
- 			,middle_two_checkbox_one=#{middle_two_checkbox_one}
- 			,middle_two_checkbox_two_twoone = #{middle_two_checkbox_two_twoone}
- 			,middle_two_checkbox_three = #{middle_two_checkbox_three}
- 			,middle_two_content_box = #{middle_two_content_box}
- 			,middle_two_content_box_boxone = #{middle_two_content_box_boxone}
- 			,middle_three_writer = #{middle_three_writer}
- 			,middle_three_content = #{middle_three_content}
- 			,middle_three_content_email= #{middle_three_content_email}
- 			,middle_three_content_select= #{middle_three_content_select}
- 			,phone=#{phone}
- 			,document=#{document}
- 			,checkone=#{checkone}
- 			where prodd_id = #{prodd_id}
- 			</update>
+</delete>
+
+<update id="update">
+	update MANAGER_TEST set
+	header_main_title=#{header_main_title}
+	,company_title = #{company_title}
+	,middle_content= #{middle_content}
+	,middle_content_category = #{middle_content_category}
+	,middle_middle_people = #{middle_middle_people}
+	, middle_middle_writer = #{middle_middle_writer}
+	,middle_two_checkbox_two = #{middle_two_checkbox_two}
+	,middle_two_select= #{middle_two_select}
+	,middle_two_content_content=#{middle_two_content_content}	
+	,middle_two_checkbox_one=#{middle_two_checkbox_one}
+	,middle_two_checkbox_two_twoone = #{middle_two_checkbox_two_twoone}
+	,middle_two_checkbox_three = #{middle_two_checkbox_three}
+	,middle_two_content_box = #{middle_two_content_box}
+	,middle_two_content_box_boxone = #{middle_two_content_box_boxone}
+	,middle_three_writer = #{middle_three_writer}
+	,middle_three_content = #{middle_three_content}
+	,middle_three_content_email= #{middle_three_content_email}
+	,middle_three_content_select= #{middle_three_content_select}
+	,phone=#{phone}
+	,document=#{document}
+	,checkone=#{checkone}
+	where prodd_id = #{prodd_id}
+</update>
+
+
+<!-- 입사지원 manager_Test2 테이블에 insert -->
+
+<update id="applyCompany">
+	update manager_test set stu_id = #{stu_id} where prodd_id = #{prodd_id}
+</update>
+
+
 </mapper>

@@ -5,14 +5,17 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.project_wizian2.command.JobVO;
 import com.example.project_wizian2.command.ManagerResumeListVO;
 import com.example.project_wizian2.command.ResumeVO;
+import com.example.project_wizian2.job.service.JobMapper;
 
 @Service("manager")
 public class ManagerServiceImpl implements ManagerService{
 	
 	@Autowired
 	private ManagerMapper managerMapper;
+	
 
 	@Override
 	public ArrayList<ManagerResumeListVO> getList() {
@@ -98,7 +101,21 @@ public class ManagerServiceImpl implements ManagerService{
 		
 		return managerMapper.umList5();
 	}
+
+	// 입사 지원 확인
+	@Override
+	public ArrayList<JobVO> applyList(String stu_id) {
+		System.out.println(stu_id);
+		return managerMapper.applyList(stu_id);
+	}
 	
+	//기업 지원자 확인
+	@Override
+	public ArrayList<ResumeVO> applyStu(String user_id) {
+		
+		return null;
+	}
+
 	
 
 }
