@@ -140,6 +140,7 @@ public class ManagerServiceImpl implements ManagerService{
 		return managerMapper.applyStu4(search_id);
 	}
 
+
 	
 	
 	

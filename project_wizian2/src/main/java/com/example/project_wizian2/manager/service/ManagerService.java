@@ -37,6 +37,7 @@ public interface ManagerService {
 	// 최종 합격자 명단
 	public ArrayList<ResumeVO> umList5();
 	
+	
 	// 입사 지원자 확인
 	public ArrayList<JobVO> applyList(String stu_id);
 	

@@ -1,7 +1,10 @@
 package com.example.project_wizian2.controller;
 
+import java.net.http.HttpRequest;
 import java.util.ArrayList;
 
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,6 +97,9 @@ public class User_CoController {
 	
 
 		model.addAttribute("umList", vo);
+
+		
+		
 		
 		return "/user_co/hire_co";
 	}
