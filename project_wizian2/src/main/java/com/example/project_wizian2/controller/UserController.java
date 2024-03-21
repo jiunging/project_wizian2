@@ -142,7 +142,7 @@ public class UserController {
 						System.out.println("login successful");
 
 						session.setAttribute("user_id", man_id);
-						session.setAttribute("man_email", man_email);
+						session.setAttribute("user_email", man_email);
 						session.setAttribute("auth", "man");
 						session.setAttribute("man_vo", vo3);
 						session.setAttribute("man_name", man_name);
