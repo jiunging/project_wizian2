@@ -102,6 +102,14 @@ public class ManagerController {
 		return "/user_mn/result_resume";
 	}
 	
+	@GetMapping("/approve_apply/{stu_id}")
+    public String approveApply(@RequestParam("stu_id") String stu_id) {
+
+		
+		
+        return "redirect:/user_mn/result_resume"; // 승인 후 게시글 목록 페이지로 리다이렉트
+    }
+	
 	
 	
 	@GetMapping("/hire_co_confirm")
