@@ -299,6 +299,8 @@ img {
 	margin-right: 10px;
 }
 
+.footer_button_box > button {cursor: pointer;}
+
 </style>
 </head>
 
@@ -306,231 +308,197 @@ img {
 
 <body>
 		
-	<form name="goodDay" action="#####" method="post">
-		 <input type="hidden" id="hidden" name="prodd_id" th:value="${vo.prodd_id}">
+	<input type="hidden" id="hidden" name="prodd_id" th:value="${vo.prodd_id}">
 
-		<div class="body_basic">
-			<div class="body_border">
-				<div class="body_class">
-					<header>
-						<div class="header_title">
+	<div class="body_basic">
+		<div class="body_border">
+			<div class="body_class">
+				<header>
+					<div class="header_title">
+						<h1>공고 확인</h1>
+					</div>				
+					<div>
+						<h3 class="header_hthree">공고 제목</h3>
+						<div class="header_main_title" th:text="${vo.title_name}">[[${vo.title_name}]]</div>
+					</div>
+                       <div>
+						<h3 class="header_hthree">회사명</h3>
+						<div class="header_main_title" th:text="${vo.title}" name="company_title">[[${vo.title}]]</div>
+					</div>
+				</header>
+				
+				<div class="big_border">
+					<middle>
+					<div class="middle_big_title">
+						<h2>모집분야</h2>
+					</div>
+					<div class="middle_box">
+						<h5 class="middle_writer" id="middle_writer">직무, 직업</h5>
+					</div>
+					<div class="middle_box">
+						<div class="middle_content" name="middle_content" th:text="${vo.middle_content}">[[${vo.middle_content}]]</div>
+					</div>
+					<div class="middle_box">
+						<h5 class="middle_writer">모집분야</h5>
+					</div>
+					<div class="middle_box">
+						<div class="middle_content" name="middle_content_category" th:text="${vo.middle_content_category}">[[${vo.middle_content_category}]]</div>
+					</div>
+					<div>
+						<h5 class="middle_writer">모집인원</h5>
+					</div>
+					<div class="middle_box">
+						<div class="middle_content" name="middle_middle_people" th:text="${vo.middle_middle_people}">[[${vo.middle_middle_people}]]</div>
+					</div>
+					<div class="middle_box">
+						<h5 class="middle_writer">경력</h5>
+					</div>
+					<div class="middle_box">
+						<div class="middle_content"name="middle_middle_writer" th:value="${vo.middle_middle_writer}">[[${vo.middle_middle_writer}]]</div>
+					</div>
 
-							<h1>공고 확인</h1>
-						</div>
-						
-						<div>
-							<h3 class="header_hthree">공고 제목</h3>
-
-							<div class="header_main_title" th:text="${vo.title_name}">[[${vo.title_name}]]</div>
-						</div>
-                        <div>
-							<h3 class="header_hthree">회사명</h3>
-							<div class="header_main_title" th:text="${vo.title}" name="company_title">[[${vo.title}]]</div>
-						</div>
-						
-					</header>
+					</middle>
 					
-					<div class="big_border">
-						<middle>
-						<div class="middle_big_title">
-							<h2>모집분야</h2>
-						</div>
-						<div class="middle_box">
-							<h5 class="middle_writer" id="middle_writer">직무, 직업</h5>
-						</div>
-						<div class="middle_box">
-							<div class="middle_content" name="middle_content" th:text="${vo.middle_content}"
-								>[[${vo.middle_content}]]</div>
-						</div>
-						<div class="middle_box">
-
-							<h5 class="middle_writer">모집분야</h5>
-						</div>
-						<div class="middle_box">
-							<div class="middle_content"
-								name="middle_content_category"
-								th:text="${vo.middle_content_category}">[[${vo.middle_content_category}]]</div>
-						</div>
-						<div>
-							<h5 class="middle_writer">모집인원</h5>
-						</div>
-						<div class="middle_box">
-							<div class="middle_content"
-								name="middle_middle_people" th:text="${vo.middle_middle_people}">[[${vo.middle_middle_people}]]</div>
-						</div>
-						<div class="middle_box">
-							<h5 class="middle_writer">경력</h5>
-						</div>
-						<div class="middle_box">
-							<div class="middle_content"
-								name="middle_middle_writer"
-								th:value="${vo.middle_middle_writer}">[[${vo.middle_middle_writer}]]</div>
-						</div>
-
-						</middle>
-						
-						<middle_two>
-						<div class="middle_big_title">
-							<h2>지원자격 / 근무조건</h2>
+					<middle_two>
+					
+					<div class="middle_big_title">
+						<h2>지원자격 / 근무조건</h2>
+					</div>
+					<div class="middle_two_box">
+						<h5 class="middle_two_writer">지원자 학력</h5>
+					</div>
+					<div class="middle_two_box_checkbox">
+						<h5 class="middle_two_people">
+							<div class="middle_two_checkbox" name="middle_two_checkbox_two" th:value="${vo.middle_two_checkbox_two}">[[${vo.middle_two_checkbox_two}]]</div>
+							졸업예정자 가능
+							<div class="middle_two_select" name="middle_two_select" th:value="${vo.middle_two_select}">[[${vo.middle_two_select}]]</div>
+						</h5>
+					</div>
+					<div class="middle_two_box"> 
+						<h5 class="middle_two_writer">근무지역</h5>
+					</div>
+					<div class="middle_two_box">
+						<div class="middle_two_content_content" name="middle_two_content_content" th:value="${vo.middle_two_content_content}">[[${vo.middle_two_content_content}]]</div>
+					</div>
+					<div class="middle_two_box">
+						<h5 class="middle_two_writer">근무형태</h5>
+					</div>
+					<div class="middle_two_box">
+						<div class="middle_two_content">
+							<p class="middle_two_maintext">
+								<div class="middle_two_checkbox" name="middle_two_checkbox_one" th:value="${middle_two_checkbox_one}">[[${middle_two_checkbox_one}]]</div>
+							</p>
+							<p class="middle_two_maintext">
+								<div class="middle_two_checkbox" name="middle_two_checkbox_two_twoone" th:value="${middle_two_checkbox_two_twoone}">[[${middle_two_checkbox_two_twoone}]]</div>
+							</p>
+							<p class="middle_two_maintext">
+								<div class="middle_two_checkbox" name="middle_two_checkbox_three" th:value="${vo.middle_two_checkbox_three}">[[${vo.middle_two_checkbox_three}]]</div>
+							</p>
 						</div>
 						<div class="middle_two_box">
-							<h5 class="middle_two_writer">지원자 학력</h5>
+							<h5 class="middle_two_writer">급여</h5>
+							<h5 class="middle_two_writer">근무시간</h5>
 						</div>
-						<div class="middle_two_box_checkbox">
-							<h5 class="middle_two_people">
-								<div class="middle_two_checkbox"
-									name="middle_two_checkbox_two" th:value="${vo.middle_two_checkbox_two}">[[${vo.middle_two_checkbox_two}]]</div>졸업예정자 가능<div
-									class="middle_two_select" name="middle_two_select" th:value="${vo.middle_two_select}">
-								
-									[[${vo.middle_two_select}]]
-								</div>
-							</h5>
-						</div>
-						<div class="middle_two_box"> 
-							<h5 class="middle_two_writer">근무지역</h5>
-						</div>
-						<div class="middle_two_box">
-							<div class="middle_two_content_content"
-								name="middle_two_content_content"
-								th:value="${vo.middle_two_content_content}">[[${vo.middle_two_content_content}]]</div>
-						</div>
-						<div class="middle_two_box">
-							<h5 class="middle_two_writer">근무형태</h5>
-						</div>
-						<div class="middle_two_box">
-							<div class="middle_two_content">
-								<p class="middle_two_maintext">
-									<div class="middle_two_checkbox"
-										name="middle_two_checkbox_one" th:value="${middle_two_checkbox_one}">[[${middle_two_checkbox_one}]]</div>
-								</p>
-								<p class="middle_two_maintext">
-									<div class="middle_two_checkbox"
-										name="middle_two_checkbox_two_twoone" th:value="${middle_two_checkbox_two_twoone}">[[${middle_two_checkbox_two_twoone}]]</div>
-								</p>
-								<p class="middle_two_maintext">
-									<div class="middle_two_checkbox"
-										name="middle_two_checkbox_three" th:value="${vo.middle_two_checkbox_three}">[[${vo.middle_two_checkbox_three}]]</div>
-								</p>
-							</div>
-							<div class="middle_two_box">
-								<h5 class="middle_two_writer">급여</h5>
-								<h5 class="middle_two_writer">근무시간</h5>
-							</div>
-						</div>
-						<div class="middle_two_box_good">
-							<div class="middle_two_box_good_nice">
-								<p class="middle_two_content_box_hello">
-									<div class="middle_two_content_box"
-										name="middle_two_content_box" th:value="${vo.middle_two_content_box}">[[${vo.middle_two_content_box}]]</div>
+					</div>
+					<div class="middle_two_box_good">
+						<div class="middle_two_box_good_nice">
+							<p class="middle_two_content_box_hello">
+								<div class="middle_two_content_box"name="middle_two_content_box" th:value="${vo.middle_two_content_box}">[[${vo.middle_two_content_box}]]</div>
 								<h4 class="middle_two_content_box_name">원</h4>
-								</p>
-							</div>
-							<div class="middle_two_box_good_nice">
-								<p class="middle_two_content_box_hello">
+							</p>
+						</div>
+						<div class="middle_two_box_good_nice">
+							<p class="middle_two_content_box_hello">
 								<h4 class="middle_two_content_box_feel">주</h4>
-								<div class="middle_two_content_box"
-									name="middle_two_content_box_boxone"
-								th:value="${vo.middle_two_content_box_boxone}">[[${vo.middle_two_content_box_boxone}]]</div>
+								<div class="middle_two_content_box" name="middle_two_content_box_boxone" th:value="${vo.middle_two_content_box_boxone}">[[${vo.middle_two_content_box_boxone}]]</div>
 								<h4 class="middle_two_content_box_name_time">시간</h4>
-								</p>
-							</div>
+							</p>
 						</div>
+					</div>
 
-						</middle_two>
-						<middle_three>
-						<div class="middle_big_title">
-							<h2>인사담당자 / 기업정보</h2>
-						</div>
+					</middle_two>
+					<middle_three>
+					<div class="middle_big_title">
+						<h2>인사담당자 / 기업정보</h2>
+					</div>
+					<div class="middle_three_box">
+						<h5 class="middle_three_writer">담당자명</h5>
+					</div>
+					<div class="middle_three_box">
 						<div class="middle_three_box">
-							<h5 class="middle_three_writer">담당자명</h5>
+							<div class="middle_three_content"
+								name="middle_three_writer" th:value="${vo.middle_three_writer}">[[${vo.middle_three_writer}]]</div>
 						</div>
+					</div>
+					<div class="middle_three_box">
+						<h5 class="middle_three_writer">기업연락처</h5>
+					</div>
+					<div class="middle_three_box">
 						<div class="middle_three_box">
-							<div class="middle_three_box">
-								<div class="middle_three_content"
-									name="middle_three_writer" th:value="${vo.middle_three_writer}">[[${vo.middle_three_writer}]]</div>
-							</div>
+							<div class="middle_three_content"
+								name="middle_three_content"
+								th:value="${vo.middle_three_content}">[[${vo.middle_three_content}]]</div>
 						</div>
-						<div class="middle_three_box">
-							<h5 class="middle_three_writer">기업연락처</h5>
-						</div>
-						<div class="middle_three_box">
-							<div class="middle_three_box">
-								<div class="middle_three_content"
-									name="middle_three_content"
-									th:value="${vo.middle_three_content}">[[${vo.middle_three_content}]]</div>
-							</div>
-						</div>
-						<div class="middle_three_box">
-							<h5 class="middle_three_writer">이메일</h5>
-						</div>
-						<div class="middle_three_box">
+					</div>
+					<div class="middle_three_box">
+						<h5 class="middle_three_writer">이메일</h5>
+					</div>
+					<div class="middle_three_box">
 
-							<div>
-								<div class="middle_three_content"
-									name="middle_three_content_email" th:value="${vo.middle_three_content_email}">[[${vo.middle_three_content_email}]]</div>
-							</div>
+						<div>
+							<div class="middle_three_content"
+								name="middle_three_content_email" th:value="${vo.middle_three_content_email}">[[${vo.middle_three_content_email}]]</div>
 						</div>
-						<div class="middle_three_box">
-							<h5 class="middle_three_writer">업종</h5>
+					</div>
+					<div class="middle_three_box">
+						<h5 class="middle_three_writer">업종</h5>
+					</div>
+					<div class="middle_three_box">
+						<div>
+							<div class="middle_three_content_select"
+								name="middle_three_content_select" th:value="${vo.middle_three_content_select}">
+							[[${vo.middle_three_content_select}]]</div>
 						</div>
-						<div class="middle_three_box">
-							<div>
-								<div class="middle_three_content_select"
-									name="middle_three_content_select" th:value="${vo.middle_three_content_select}">
-								[[${vo.middle_three_content_select}]]</div>
-							</div>
+					</div>
+					<div class="middle_three_box">
+						<h5 class="middle_three_writer">핸드폰번호</h5>
+					</div>
+					<div class="middle_three_box">
+						<div>
+							<div class="middle_three_content" name="phone"
+							th:value="${vo.phone}">[[${vo.phone}]]</div>
 						</div>
-						<div class="middle_three_box">
-							<h5 class="middle_three_writer">핸드폰번호</h5>
+					</div>
+					<div class="middle_three_box">
+						<h5 class="middle_three_writer">담당자 부서명</h5>
+					</div>
+					<div class="middle_three_box">
+						<div>
+							<div class="middle_three_content" name="document"
+							th:value="${vo.document}">[[${vo.document}]]</div>
 						</div>
-						<div class="middle_three_box">
-							<div>
-								<div class="middle_three_content" name="phone"
-								th:value="${vo.phone}">[[${vo.phone}]]</div>
-							</div>
+						<div class="footer_box">
+						<div name="checkone" class="footer_checkbox" th:value="${vo.checkone}">[[${vo.checkone}]]등록한 공고는 사이트에 개제됩니다. 단 사이트 규정에 따라 등록이 거절이 될 수도 있습니다.</div>
 						</div>
-						<div class="middle_three_box">
-							<h5 class="middle_three_writer">담당자 부서명</h5>
-						</div>
-						<div class="middle_three_box">
-							<div>
-								<div class="middle_three_content" name="document"
-								th:value="${vo.document}">[[${vo.document}]]</div>
-							</div>
-<div class="footer_box"><div name="checkone" class="footer_checkbox" th:value="${vo.checkone}">[[${vo.checkone}]]등록한 공고는 사이트에 개제됩니다. 단 사이트 규정에 따라 등록이 거절이 될 수도 있습니다.</div></div>
-						</div>
+					</div>
 
-						</middle_three>
-						<footer>
-
-							<div class="footer_button_box">
-								<div>
-									<button type="button" class="blue" id="registerButton">버튼</button>
-								</div>
-								<div>
-									<button type="button"  class="yellow" id="viewButton">버튼</button>
-								</div>
-							</div>
+					</middle_three>
 				
-				
-						
-					</footer>
 				</div>
+				
+				<footer>
+					<form th:action="@{/job/approve_hire/{prodd_id}(prodd_id=${vo.prodd_id})}" method="get" class="footer_button_box">
+						<input type="hidden" name="stu_id" th:value="${session.user_id}"/>
+						<input type="hidden" name="prodd_id" th:value="${vo.prodd_id}">
+						<button class="blue" id="registerButton">입사 지원</button>
+					</form>
+				</footer>
 			</div>
 		</div>
-		</div>
-	</form>
+	</div>
+	
 </body>
-<script type="text/javascript">
 
-    
-
-    // vo.prodd_id 로그 출력 부분 제거 또는 주석 처리
-    // console.log(vo.prodd_id); // 전역 변수 'vo'가 정의되지 않았거나 다른 스크립트와 충돌 가능성 있음
-
-    // 'productId' ID를 가진 요소의 텍스트 내용 가져오기
-
-</script>
 
 
 </html>

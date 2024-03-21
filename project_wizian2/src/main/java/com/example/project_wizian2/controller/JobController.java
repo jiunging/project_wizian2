@@ -52,11 +52,16 @@ public class JobController {
 	@GetMapping("/resume_jobpost2")
 	  public String gooddood(int prodd_id, Model model) {
 		JobVO vo = jobService.select(prodd_id);
-		System.out.println("resume_jobpost : " + vo.toString());
 		model.addAttribute("vo", vo);
 	    return "job/resume_jobpost2";
 	}
 	
+	@GetMapping("/approve_hire/{prodd_id}")
+    public String approvePost(@RequestParam("stu_id") String stu_id, @RequestParam("prodd_id") int prodd_id ) {
+		jobService.applyCompany(stu_id, prodd_id);
+		
+        return "redirect:/user_stu/applyList_stu"; 
+    }
 	
 
     @GetMapping("/resume_ListJob")
@@ -101,4 +106,4 @@ public class JobController {
 		return "redirect:/job/resume_co";
 	}
 
-	}
+}
