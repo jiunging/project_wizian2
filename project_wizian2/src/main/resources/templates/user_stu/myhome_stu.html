@@ -135,7 +135,7 @@
       <div class="section__notice__below">
         <div class="notice__below__container">
 
-          <h3>지원 내역</h3>
+          <h3>채용공고</h3>
           <table>
               <thead>
                   <tr>
@@ -145,36 +145,12 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                      <td>1</td>
-                      <td>웹 개발자 채용</td>
-                      <td>ABC 주식회사</td>
+                  <tr th:each="updatePost : ${updatePost}">
+                      <td th:text="${updatePost.prodd_id}">1</td>
+                      <td><a href=""><span th:text="${updatePost.title_name}"></span></a></td>
+                      <td th:text="${updatePost.title}">ABC 주식회사</td>
                   </tr>
-                  <tr>
-                      <td>2</td>
-                      <td>데이터 분석가 채용</td>
-                      <td>XYZ 기업</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>웹 개발자 채용</td>
-                    <td>ABC 주식회사</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>데이터 분석가 채용</td>
-                    <td>XYZ 기업</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>웹 개발자 채용</td>
-                  <td>ABC 주식회사</td>
-              </tr>
-              <tr>
-                  <td>6</td>
-                  <td>데이터 분석가 채용</td>
-                  <td>XYZ 기업</td>
-              </tr>
+                  
               </tbody>
           </table>
         </div>
