@@ -31,8 +31,17 @@ public class ManagerController {
 	@GetMapping("/mn_myhome")
 	public String mn_myhome(Model model) {
 		ArrayList<ManagerResumeListVO> list = managerService.getList();
+		System.out.println("list 뽑아온다~");
+		System.out.println(list);
 		ArrayList<ManagerResumeListVO> updatePost = managerService.updatePost();
+		System.out.println("updatePost 뽑아온다~");
+		System.out.println(updatePost);
 		ArrayList<ResumeVO> resumeList = managerService.umList();
+		System.out.println("resultList 뽑아온다~");
+		System.out.println(resumeList);
+
+		System.out.println(list);
+		System.out.println(list);
 		model.addAttribute("list", list);
 		model.addAttribute("updatePost", updatePost);
 		model.addAttribute("resumeList", resumeList);
