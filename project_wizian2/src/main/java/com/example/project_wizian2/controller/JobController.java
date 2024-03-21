@@ -31,12 +31,9 @@ public class JobController {
 	
 	@GetMapping("/resume_co")
 	public String getList(Model model,Criteria cri ) {
-		System.out.println("여기 도달함?");
 		ArrayList<JobVO> list=jobService.getList(cri);
 		 int total = jobService.getTotal(cri); 
 		 PageVO pageVO= new PageVO(cri, total);//페이지네이션
-		 
-		 System.out.println("여기 도달함?2");
 		
 		model.addAttribute("list",list);
 		model.addAttribute("pageVO",pageVO);
@@ -55,12 +52,16 @@ public class JobController {
 	@GetMapping("/resume_jobpost2")
 	  public String gooddood(int prodd_id, Model model) {
 		JobVO vo = jobService.select(prodd_id);
-		System.out.println("resume_jobpost : " + vo.toString());
 		model.addAttribute("vo", vo);
-		System.out.println("vo에 값이 담겼나?" + vo);
 	    return "job/resume_jobpost2";
 	}
 	
+	@GetMapping("/approve_hire/{prodd_id}")
+    public String approvePost(@RequestParam("stu_id") String stu_id, @RequestParam("prodd_id") int prodd_id ) {
+		jobService.applyCompany(stu_id, prodd_id);
+		
+        return "redirect:/user_stu/applyList_stu"; 
+    }
 	
 
     @GetMapping("/resume_ListJob")
@@ -105,4 +106,4 @@ public class JobController {
 		return "redirect:/job/resume_co";
 	}
 
-	}
+}

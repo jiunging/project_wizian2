@@ -2,6 +2,7 @@ package com.example.project_wizian2.manager.service;
 
 import java.util.ArrayList;
 
+import com.example.project_wizian2.command.JobVO;
 import com.example.project_wizian2.command.ManagerResumeListVO;
 import com.example.project_wizian2.command.ResumeVO;
 
@@ -35,4 +36,10 @@ public interface ManagerService {
 	public ArrayList<ResumeVO> umList4();
 	// 최종 합격자 명단
 	public ArrayList<ResumeVO> umList5();
+	
+	// 입사 지원자 확인
+	public ArrayList<JobVO> applyList(String stu_id);
+	
+	//기업 지원자 확인
+	public ArrayList<ResumeVO> applyStu(String user_id);
 }
