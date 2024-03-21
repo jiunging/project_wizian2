@@ -40,7 +40,6 @@ public class StudentController {
 		HttpSession session = request.getSession();
 		String auth = (String) session.getAttribute("user_id");
 		System.out.println(auth);
-		System.out.println("세션, 홈까지 오다");
 		return "/user_stu/home";
 	}
 	
@@ -57,12 +56,9 @@ public class StudentController {
 	// 학생 입장에서 보는 채용공고
 	@GetMapping("/notice_stu")
 	public String notice_stu(Model model) {
-		System.out.println("채용공고냐?");
 		
 		ArrayList<ManagerResumeListVO> list = managerService.updatePost();
 		model.addAttribute("list", list);
-		
-		System.out.println("채용공고 페이지 속 list: " + list);
 		
 		return "/user_stu/notice_stu";
 	}
@@ -84,7 +80,7 @@ public class StudentController {
 		
 		resumeService.registResume(vo);
 		
-		return "user_stu/myhome_stu";
+		return "redirect:/user_stu/myhome_stu";
 	}
 	
 

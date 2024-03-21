@@ -16,8 +16,10 @@
     <div class="section__right__header">
     <div class="right__header__img"><img src="/img/default.png" alt="기본이미지"></div>
     <div class="right__header__info">
-      <p th:text="${session.user_id}  + ' 님'"> <span id="info1">session.부서명</span></p>
-      <span id="info3" th:text="${session.user_email}" ></span>
+      <p th:text="${session.man_name}  + ' 님'"> <span id="info1"></span></p>
+      <span id="info2" th:text="${session.man_department}"></span>
+      <span id="info2" th:text="${session.man_email}"></span>
+      
     </div>
     </div>
   </div>
