@@ -58,9 +58,28 @@
   		select * from manager_test where stu_id = #{stu_id}
   	</select>
   	
-  	<!-- 기업 지원자 내역 확인 -->
-  	<select id="applyStu" resultType="ResumeVO">
-  		select * from test_resume where (select * from manager where user_id)
+
+  	
+  	<!-- 지원자 아이디 검색 -->
+  	<select id="searchId" resultType="String">
+  		SELECT STU_ID FROM MANAGER_TEST WHERE USER_ID = #{searchId};
   	</select>
+  	<!-- 지원자 리스트 -->
+  	<select id="applyStu" resultType="ResumeVO">
+  		SELECT * FROM TEST_RESUME WHERE STU_ID = #{search_id} and STU_YN IS NULL;
+  	</select>
+  	<!-- 지원자 서류 합격자 -->
+  	<select id="applyStu2" resultType="ResumeVO">
+  		SELECT * FROM TEST_RESUME WHERE STU_ID = #{search_id} and stu_yn = "y";
+  	</select> 
+  	<!-- 지원자 서류 합격자 -->
+  	<select id="applyStu3" resultType="ResumeVO">
+  		SELECT * FROM TEST_RESUME WHERE STU_ID = #{search_id} and stu_yn = "yy";
+  	</select> 
+  	<!-- 지원자 서류 합격자 -->
+  	<select id="applyStu4" resultType="ResumeVO">
+  		SELECT * FROM TEST_RESUME WHERE STU_ID = #{search_id} and stu_yn = "yyy";
+  	</select> 
+  	
   	
   </mapper>

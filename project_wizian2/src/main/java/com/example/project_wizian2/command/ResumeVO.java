@@ -35,5 +35,6 @@ public class ResumeVO {
 	private String stu_wage;
 	private String stu_yn;
 	private String stu_id;
+	private String user_id;
 
 }

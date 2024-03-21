@@ -48,6 +48,7 @@ public class JobServiceImpl implements JobService{
 		jobMapper.applyCompany(stu_id, prodd_id);
 	}
 
+
 	
 	
 }

@@ -98,25 +98,20 @@ public class ManagerController {
 	
 
 	@GetMapping("/result_resume")
-	public String result_resume(int resume_num
-								,Model model) {
-		
-		System.out.println("컨트롤러 출발");
+	public String result_resume(int resume_num,Model model) {
 		
 		ArrayList<ResumeVO> list = managerService.resumeDetail(resume_num);
 		model.addAttribute("vo", list);
-		System.out.println("컨트롤러 도착");
-		System.out.println(list);
-		
+	
 		return "/user_mn/result_resume";
 	}
 	
-	@GetMapping("/approve_apply/{stu_id}")
+	@GetMapping("/approve/{stu_id}")
     public String approveApply(@RequestParam("stu_id") String stu_id) {
-
 		
 		
-        return "redirect:/user_mn/result_resume"; // 승인 후 게시글 목록 페이지로 리다이렉트
+		
+        return "redirect:/user_co/purpose_co"; // 승인 후 게시글 목록 페이지로 리다이렉트
     }
 	
 	
