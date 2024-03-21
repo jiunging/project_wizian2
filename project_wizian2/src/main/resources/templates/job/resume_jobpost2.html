@@ -490,6 +490,7 @@ img {
 					<form th:action="@{/job/approve_hire/{prodd_id}(prodd_id=${vo.prodd_id})}" method="get" class="footer_button_box">
 						<input type="hidden" name="stu_id" th:value="${session.user_id}"/>
 						<input type="hidden" name="prodd_id" th:value="${vo.prodd_id}">
+						<input type="hidden" name="user_id" th:value="${vo.user_id}">
 						<button class="blue" id="registerButton">입사 지원</button>
 					</form>
 				</footer>

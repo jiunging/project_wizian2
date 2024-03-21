@@ -2,17 +2,17 @@ package com.example.project_wizian2.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.project_wizian2.command.ManagerResumeListVO;
 import com.example.project_wizian2.command.ResumeVO;
-import com.example.project_wizian2.job.service.JobService;
 import com.example.project_wizian2.manager.service.ManagerService;
 
 @Controller
@@ -22,8 +22,6 @@ public class User_CoController {
 	@Autowired
 	private ManagerService managerService;
 	
-	@Autowired
-	private JobService jobService;
 	
 	// 인재리스트
 	@GetMapping("/apply_co")
@@ -84,12 +82,18 @@ public class User_CoController {
 		return "/user_co/hirePost";
 	}
 	
-	
+	// 지원자
 	@GetMapping("/hire_co")
-	public String hire_co(Model model) {
+	public String hire_co(Model model, HttpSession session) {
 		
-		ArrayList<ResumeVO> umList = managerService.umList2();
-		model.addAttribute("umList", umList);
+		String id = (String) session.getAttribute("user_id");
+
+		String search_id = managerService.searchId(id);
+		
+		ArrayList<ResumeVO> vo = managerService.applyStu(search_id);
+	
+
+		model.addAttribute("umList", vo);
 		
 		return "/user_co/hire_co";
 	}
@@ -108,11 +112,16 @@ public class User_CoController {
         return "redirect:/user_co/hire_co"; // 거절 후 게시글 목록 페이지로 리다이렉트
     }
 	
+	// 서류 합격
     @GetMapping("/hire_co_document")
-	public String hire_co_document(Model model) {
+	public String hire_co_document(Model model, HttpSession session) {
     	
-    	ArrayList<ResumeVO> vo = managerService.umList3();
+    	String id = (String) session.getAttribute("user_id");
+
+		String search_id = managerService.searchId(id);
+		ArrayList<ResumeVO> vo = managerService.applyStu2(search_id);
     	model.addAttribute("vo", vo);
+    	
 		return "user_co/hire_co_document";
 	}
     
@@ -132,8 +141,11 @@ public class User_CoController {
     
     
     @GetMapping("/hire_co_interview")
-    public String hire_co_interview(Model model) {
-    	ArrayList<ResumeVO> vo = managerService.umList4();
+    public String hire_co_interview(Model model, HttpSession session) {
+    	String id = (String) session.getAttribute("user_id");
+
+		String search_id = managerService.searchId(id);
+		ArrayList<ResumeVO> vo = managerService.applyStu3(search_id);
     	model.addAttribute("vo", vo);
     	return "user_co/hire_co_interview";
     }
@@ -153,8 +165,11 @@ public class User_CoController {
     }
     
     @GetMapping("/hire_co_pass")
-    public String hire_co_pass(Model model) {
-    	ArrayList<ResumeVO> vo = managerService.umList5();
+    public String hire_co_pass(Model model, HttpSession session) {
+    	String id = (String) session.getAttribute("user_id");
+
+		String search_id = managerService.searchId(id);
+		ArrayList<ResumeVO> vo = managerService.applyStu4(search_id);
     	model.addAttribute("vo", vo);
     	return "user_co/hire_co_pass";
     }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -341,7 +341,8 @@
 
 	</section>
 	
-	<form action="" method="get" class="submitForm">
+	<form th:action="@{/user_mn/approve_apply/{stu_id}(stu_id=${vo[0].stu_id})}" method="get" class="submitForm">
+			<input type="hidden" name="stu_id" th:value="${vo[0].stu_id}">
 			<button>입사 제안하기</button>
     </form>
   
