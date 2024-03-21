@@ -36,6 +36,7 @@ public class StudentController {
 	public String home(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		String auth = (String) session.getAttribute("user_id");
+
 		return "/user_stu/home";
 	}
 	
@@ -56,6 +57,7 @@ public class StudentController {
 	// 학생 입장에서 보는 채용공고
 	@GetMapping("/notice_stu")
 	public String notice_stu(Model model) {
+
 		ArrayList<ManagerResumeListVO> list = managerService.updatePost();
 		model.addAttribute("list", list);
 		return "/user_stu/notice_stu";
@@ -64,6 +66,7 @@ public class StudentController {
 	@GetMapping("/applyList_stu")
 	public String applyList_stu(String stu_id, Model model, HttpSession session) {
 		
+
 		stu_id = (String)session.getAttribute("user_id");
 		
 		ArrayList<JobVO> vo = managerService.applyList(stu_id);
@@ -71,6 +74,7 @@ public class StudentController {
 		model.addAttribute("vo", vo);
 		
 		return "/user_stu/applyList_stu";
+
 	}
 	
 	
@@ -91,8 +95,9 @@ public class StudentController {
 		
 		resumeService.registResume(vo);
 		
-		
-		return "user_stu/myhome_stu";
+
+		return "redirect:/user_stu/myhome_stu";
+
 	}
 	
 

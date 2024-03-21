@@ -31,12 +31,9 @@ public class JobController {
 	
 	@GetMapping("/resume_co")
 	public String getList(Model model,Criteria cri ) {
-		System.out.println("여기 도달함?");
 		ArrayList<JobVO> list=jobService.getList(cri);
 		 int total = jobService.getTotal(cri); 
 		 PageVO pageVO= new PageVO(cri, total);//페이지네이션
-		 
-		 System.out.println("여기 도달함?2");
 		
 		model.addAttribute("list",list);
 		model.addAttribute("pageVO",pageVO);

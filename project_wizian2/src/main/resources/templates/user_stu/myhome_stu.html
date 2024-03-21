@@ -123,7 +123,7 @@
               <tbody>
                   <tr th:each="updatePost : ${updatePost}">
                       <td th:text="${updatePost.prodd_id}">1</td>
-                      <td><a href=""><span th:text="${updatePost.title_name}"></span></a></td>
+                      <td><a th:href="@{/job/resume_jobpost2(prodd_id=${updatePost.prodd_id})}"><span th:text="${updatePost.title_name}"></span></a></td>
                       <td th:text="${updatePost.title}">ABC 주식회사</td>
                   </tr>
                   

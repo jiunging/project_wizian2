@@ -85,7 +85,7 @@
                 <div class="rightrightmiddlebox">
                   <ul>
                     <li>성명</li>
-                    <p><input type="text" class="inputName" name="stu_name" required></p>
+                    <p><input type="text" class="inputName" name="stu_name" th:value="${session.stu_name}" required></p>
                   </ul>
 
                   <ul style="border: none;">
@@ -121,11 +121,11 @@
                   </ul>
                   <ul>
                     <li>휴대전화</li>
-                    <p><input type="text" class="inputPhone" name="stu_phone" required></p>
+                    <p><input type="text" class="inputPhone" name="stu_phone" th:value="${session.stu_phone}" required></p>
                   </ul>
                   <ul>
                     <li>Email</li>
-                    <p><input type="text" class="inputEmail" name="stu_email" required></p>
+                    <p><input type="text" class="inputEmail" name="stu_email" th:value="${session.user_email}" required></p>
                   </ul>
                   <ul>
                     <li>나이</li>
@@ -375,19 +375,18 @@
                 </div>
                 
             <!-- (세션 아이디로 넣을거임) -->
-			<input type=input name="stu_id" th:value="${session.user_id}">
-			<input type=input name="" th:value="${session.stu_vo.stu_pw}">
-			<input type=input name="" th:value="${session.stu_vo.stu_name}">
-			<input type=input name="" th:value="${session.stu_name}">
-			<script>
-				
-			</script>
+            <style>
+            	#stu_id {display:none}
+            </style>
+			<input type=input id="stu_id" name="stu_id" th:value="${session.user_id}">
+			
 
               </div>
 
             </div>
 
           </div>
+          
           <button type="submit" value="submit" class="submitBtn">이력서 제출하기</button>
 
         </div>
