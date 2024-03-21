@@ -59,12 +59,16 @@ public class UserController {
 				} else {
 					String stu_id = userservice.stu_idcheck(vo).getStu_id();
 					String stu_pw = userservice.stu_idcheck(vo).getStu_pw();
+					String stu_name = userservice.stu_idcheck(vo).getStu_name();
+					
 					
 					if(vo.getStu_id().equals(stu_id) &&  vo.getStu_pw().equals(stu_pw)) {
 						
 						System.out.println("YES!!!");
 						session.setAttribute("user_id", stu_id);
 						session.setAttribute("auth", "stu");
+						session.setAttribute("stu_vo", vo);
+						session.setAttribute("stu_name", stu_name);
 						return "redirect:/user_stu/home";
 					
 					}else {
@@ -97,6 +101,7 @@ public class UserController {
 						System.out.println("login successful");
 						session.setAttribute("user_id", com_id);
 						session.setAttribute("auth", "com");
+						session.setAttribute("com_vo", vo2);
 						
 						return "redirect:/user_co/co_home";
 					}else {
@@ -127,6 +132,7 @@ public class UserController {
 						session.setAttribute("user_id", man_id);
 						session.setAttribute("user_email", man_email);
 						session.setAttribute("auth", "man");
+						session.setAttribute("man_vo", vo3);
 						
 						return "redirect:/user_mn/mn_home";
 					}else {
