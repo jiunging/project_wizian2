@@ -35,7 +35,7 @@
   	</update>
   	
   	<select id="updatePost" resultType="JobVO">
-  		select * from manager_test where yn = "y"
+  		select * from manager_test where yn = "y" and stu_id is null
   	</select>
   	
   	<select id="resumeDetail" resultType="ResumeVO">
@@ -54,5 +54,14 @@
   		update test_resume set stu_yn = #{stu_yn} where stu_name = #{stu_name}
   	</update>
   	
+  	<!-- 학생 지원자 내역 확인 -->
+  	<select id="applyList" resultType="JobVO">
+  		select * from manager_test where stu_id = #{stu_id}
+  	</select>
+  	
+  	<!-- 기업 지원자 내역 확인 -->
+  	<select id="applyStu" resultType="ResumeVO">
+  		select * from test_resume where (select * from manager where user_id)
+  	</select>
   	
   </mapper>

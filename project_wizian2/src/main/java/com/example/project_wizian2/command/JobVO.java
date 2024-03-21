@@ -35,4 +35,6 @@ public class JobVO {
 	private String phone;
 	private String document;
 	private String checkone;
+	private String user_id;
+	private String stu_id;
 }

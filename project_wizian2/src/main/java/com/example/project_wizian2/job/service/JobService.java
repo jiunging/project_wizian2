@@ -15,4 +15,7 @@ public interface JobService {
 	public int update(JobVO vo);
 	public void delete(int prodd_id);
 
+	// 입사지원
+	public void applyCompany(String stu_id, int prodd_id);
+
 }
