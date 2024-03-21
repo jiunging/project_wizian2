@@ -14,3 +14,7 @@ function my__resume(){
 function my__hire(){
   $("#iframe").attr("src", "/user_mn/co_hire_mn");
 }
+
+function my_confirm(){
+	$("#iframe").attr("src", "/user_mn/hire_co_confirm");
+};

@@ -103,6 +103,15 @@ public class ManagerController {
 	}
 	
 	
+	
+	@GetMapping("/hire_co_confirm")
+    public String hire_co_confirm(Model model) {
+    	
+		ArrayList<ResumeVO> vo = managerService.umList5();
+		model.addAttribute("vo", vo);
+		
+    	return "/user_mn/hire_co_confirm";
+    }
 
 	
 	
