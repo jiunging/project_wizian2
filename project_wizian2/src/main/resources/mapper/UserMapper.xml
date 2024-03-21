@@ -6,7 +6,13 @@
 <mapper namespace="com.example.project_wizian2.user.service.UserMapper">
 
 	<insert id="stu_regist">                       
-		insert into STUDENT values ( #{stu_id},
+		insert into STUDENT (stu_id,
+							 stu_pw,
+							 stu_name,
+							 stu_phone,
+							 stu_email)
+							 
+									values ( #{stu_id},
 									 #{stu_pw},
 									 #{stu_name},
 									 #{stu_phone},
