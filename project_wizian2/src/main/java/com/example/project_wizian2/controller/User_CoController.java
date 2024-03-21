@@ -1,6 +1,10 @@
 package com.example.project_wizian2.controller;
 
+import java.net.http.HttpRequest;
 import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -86,10 +90,16 @@ public class User_CoController {
 	
 	
 	@GetMapping("/hire_co")
-	public String hire_co(Model model) {
+	public String hire_co(Model model, HttpSession session, HttpServletRequest request) {
 		
+
+		String id = (String)session.getAttribute("user_id");
+		
+		System.out.println("여기 페이지 맞음?");
 		ArrayList<ResumeVO> umList = managerService.umList2();
 		model.addAttribute("umList", umList);
+		
+		
 		
 		return "/user_co/hire_co";
 	}

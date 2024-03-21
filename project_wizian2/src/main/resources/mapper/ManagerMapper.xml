@@ -14,7 +14,7 @@
   	</select> 
   	
   	<select id="umList2" resultType="ResumeVO">
-  		select* from test_resume where stu_yn is null
+  		select * from test_resume where stu_yn is null
   	</select> 
   	
   	<select id="umList3" resultType="ResumeVO">
@@ -28,7 +28,6 @@
   	<select id="umList5" resultType="ResumeVO">
   		select* from test_resume where stu_yn = "yyy"
   	</select> 
-  	
   	
   	<update id="updatePostStatus">
   		update manager_test set yn = #{yn} where title = #{title}
