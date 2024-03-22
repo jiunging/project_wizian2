@@ -45,6 +45,20 @@ public interface ManagerMapper {
 	// 입사 지원자 확인
 	public ArrayList<JobVO> applyList(String stu_id);
 	
-	//기업 지원자 확인
-	public ArrayList<ResumeVO> applyStu(String user_id);
+	// 기업 -> 지원자 리시트 확인
+	public ArrayList<ResumeVO> applyStu(String search_id);
+	
+	// 기업 -> 지원자 리시트 확인 ( 서류 합격 )
+	public ArrayList<ResumeVO> applyStu2(String search_id);
+	
+	// 기업 -> 지원자 리시트 확인 ( 면접 전형 진출자 )
+	public ArrayList<ResumeVO> applyStu3(String search_id);
+	
+	// 기업 -> 지원자 리시트 확인 ( 최종합격자 )
+	public ArrayList<ResumeVO> applyStu4(String search_id);
+	
+	// 지원자 아이디 검색
+	public String searchId (String id);
+	
+	
 }

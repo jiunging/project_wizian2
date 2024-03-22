@@ -20,15 +20,11 @@ public class ManagerServiceImpl implements ManagerService{
 	@Override
 	public ArrayList<ManagerResumeListVO> getList() {
 		
-		//System.out.println("서비스: " + managerMapper.getList());
-		
 		return managerMapper.getList();
 	}
 
 	@Override
 	public ArrayList<ResumeVO> umList() {
-		
-		//System.out.println("umlist 서비스: " + managerMapper.umList());
 		
 		return managerMapper.umList();
 	}
@@ -39,6 +35,7 @@ public class ManagerServiceImpl implements ManagerService{
 		
 		return managerMapper.resumeDetail(resume_num);
 	}
+	
 	// 채용공고 승인 여부
 	@Override
 	public void updatePostStatus(String title, String yn) {
@@ -108,14 +105,45 @@ public class ManagerServiceImpl implements ManagerService{
 		System.out.println(stu_id);
 		return managerMapper.applyList(stu_id);
 	}
-	
-	//기업 지원자 확인
+
 	@Override
-	public ArrayList<ResumeVO> applyStu(String user_id) {
+	public String searchId(String id) {
 		
-		return null;
+		return managerMapper.searchId(id);
+	}
+	
+	// 기업 -> 지원자 리스트 확인
+	@Override
+	public ArrayList<ResumeVO> applyStu(String search_id) {
+		
+		return managerMapper.applyStu(search_id);
+	}
+	
+	// 기업 -> 지원자 리스트 확인 ( 서류 합격 )
+	@Override
+	public ArrayList<ResumeVO> applyStu2(String search_id) {
+		
+		return managerMapper.applyStu2(search_id);
+	}
+	
+	// 기업 -> 지원자 리스트 확인 ( 면접 전행 )
+	@Override
+	public ArrayList<ResumeVO> applyStu3(String search_id) {
+		
+		return managerMapper.applyStu3(search_id);
+	}
+	
+	// 기업 -> 지원자 리스트 확인 ( 면접 전행 )
+	@Override
+	public ArrayList<ResumeVO> applyStu4(String search_id) {
+		
+		return managerMapper.applyStu4(search_id);
 	}
 
+
+	
+	
+	
 	
 
 }
