@@ -31,8 +31,17 @@ public class ManagerController {
 	@GetMapping("/mn_myhome")
 	public String mn_myhome(Model model) {
 		ArrayList<ManagerResumeListVO> list = managerService.getList();
+		System.out.println("list 뽑아온다~");
+		System.out.println(list);
 		ArrayList<ManagerResumeListVO> updatePost = managerService.updatePost();
+		System.out.println("updatePost 뽑아온다~");
+		System.out.println(updatePost);
 		ArrayList<ResumeVO> resumeList = managerService.umList();
+		System.out.println("resultList 뽑아온다~");
+		System.out.println(resumeList);
+
+		System.out.println(list);
+		System.out.println(list);
 		model.addAttribute("list", list);
 		model.addAttribute("updatePost", updatePost);
 		model.addAttribute("resumeList", resumeList);
@@ -89,18 +98,21 @@ public class ManagerController {
 	
 
 	@GetMapping("/result_resume")
-	public String result_resume(int resume_num
-								,Model model) {
-		
-		System.out.println("컨트롤러 출발");
+	public String result_resume(int resume_num,Model model) {
 		
 		ArrayList<ResumeVO> list = managerService.resumeDetail(resume_num);
 		model.addAttribute("vo", list);
-		System.out.println("컨트롤러 도착");
-		System.out.println(list);
-		
+	
 		return "/user_mn/result_resume";
 	}
+	
+	@GetMapping("/approve/{stu_id}")
+    public String approveApply(@RequestParam("stu_id") String stu_id) {
+		
+		
+		
+        return "redirect:/user_co/purpose_co"; // 승인 후 게시글 목록 페이지로 리다이렉트
+    }
 	
 	
 	

@@ -17,5 +17,5 @@ public interface JobService {
 
 	// 입사지원
 	public void applyCompany(String stu_id, int prodd_id);
-
+	
 }
